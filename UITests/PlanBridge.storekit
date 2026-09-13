@@ -1,0 +1,75 @@
+{
+  "settings": {
+    "_failTransactionsEnabled": false,
+    "_storefront": "GBR",
+    "_locale": "en_GB"
+  },
+  "identifier": "PLANBRIDGE",
+  "version": {
+    "major": 2,
+    "minor": 0
+  },
+  "subscriptionGroups": [
+    {
+      "localizations": [],
+      "subscriptions": [
+        {
+          "groupNumber": 1,
+          "subscriptionGroupID": "22380859",
+          "codeOffers": [],
+          "localizations": [
+            {
+              "locale": "en_GB",
+              "displayName": "PlanBridge Pro Monthly",
+              "description": "Unlimited trip checks and on-device voice questions."
+            },
+            {
+              "locale": "en_US",
+              "displayName": "PlanBridge Pro Monthly",
+              "description": "Unlimited trip checks and on-device voice questions."
+            }
+          ],
+          "familyShareable": false,
+          "introductoryOffer": null,
+          "productID": "com.planbridge.ai.pro.monthly",
+          "adHocOffers": [],
+          "displayPrice": "2.99",
+          "referenceName": "PlanBridge Pro monthly",
+          "recurringSubscriptionPeriod": "P1M",
+          "internalID": "6811483981",
+          "type": "RecurringSubscription"
+        },
+        {
+          "groupNumber": 1,
+          "subscriptionGroupID": "22380859",
+          "codeOffers": [],
+          "localizations": [
+            {
+              "locale": "en_GB",
+              "displayName": "PlanBridge Pro Annual",
+              "description": "Unlimited trip checks and on-device voice questions."
+            },
+            {
+              "locale": "en_US",
+              "displayName": "PlanBridge Pro Annual",
+              "description": "Unlimited trip checks and on-device voice questions."
+            }
+          ],
+          "familyShareable": false,
+          "introductoryOffer": null,
+          "productID": "com.planbridge.ai.pro.annual",
+          "adHocOffers": [],
+          "displayPrice": "24.99",
+          "referenceName": "PlanBridge Pro annual",
+          "recurringSubscriptionPeriod": "P1Y",
+          "internalID": "6811484978",
+          "type": "RecurringSubscription"
+        }
+      ],
+      "name": "PlanBridge Pro",
+      "id": "22380859"
+    }
+  ],
+  "nonRenewingSubscriptions": [],
+  "products": []
+}

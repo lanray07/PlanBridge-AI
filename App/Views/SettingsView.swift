@@ -45,9 +45,9 @@ struct SettingsView: View {
                 }
             }
             Section("About") {
-                NavigationLink("Privacy & data handling") { PolicyView(isPrivacy:true) }
-                NavigationLink("Terms & limitations") { PolicyView(isPrivacy:false) }
-                LabeledContent("Version",value:"1.0 · Development build")
+                if let url = ReleaseConfiguration.privacyURL { Link("Privacy & data handling",destination:url) }
+                if let url = ReleaseConfiguration.termsURL { Link("Terms & limitations",destination:url) }
+                LabeledContent("Version",value:Bundle.main.object(forInfoDictionaryKey:"CFBundleShortVersionString") as? String ?? "1.0")
             }
         }.navigationTitle("Your settings").toolbar { ToolbarItem(placement:.confirmationAction) { Button("Done") { dismiss() } } }
             .confirmationDialog(store.isDemo ? "Clear the demo?" : "Delete all local PlanBridge data?",isPresented:$confirmDelete,titleVisibility:.visible) {

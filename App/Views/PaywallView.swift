@@ -3,8 +3,7 @@ import StoreKit
 
 enum ReleaseConfiguration {
     static let privacyURL = URL(string: "https://github.com/lanray07/PlanBridge-AI/blob/main/PRIVACY.md")
-    // Final publisher terms are still required before enabling purchases.
-    static let termsURL: URL? = nil
+    static let termsURL = URL(string: "https://github.com/lanray07/PlanBridge-AI/blob/main/TERMS.md")
     static var purchasesReady: Bool { privacyURL != nil && termsURL != nil }
 }
 struct PaywallView: View {
@@ -23,7 +22,7 @@ struct PaywallView: View {
                 }.frame(maxWidth:.infinity,alignment:.leading).bridgeCard()
                 if subscription.isPro { Label("Your Pro subscription is active",systemImage:"checkmark.seal.fill").foregroundStyle(BridgeTheme.green) }
                 else if subscription.products.isEmpty {
-                    Text("Subscriptions are not available in this development build. No price or free trial is being promised.").font(.subheadline).foregroundStyle(.secondary)
+                    Text("Plans are temporarily unavailable. Please check your connection and try again.").font(.subheadline).foregroundStyle(.secondary)
                     Button("Try loading plans again") { Task { await subscription.start() } }
                 } else {
                     ForEach(subscription.products) { product in
@@ -38,7 +37,7 @@ struct PaywallView: View {
                                 }
                                 Spacer(); Text(product.displayPrice).font(.title3)
                             }.bridgeCard()
-                        }.disabled(subscription.isBusy || !ReleaseConfiguration.purchasesReady)
+                        }.accessibilityIdentifier(product.id).disabled(subscription.isBusy || !ReleaseConfiguration.purchasesReady)
                     }
                 }
                 if !ReleaseConfiguration.purchasesReady { Text("Purchases are disabled until the publisher supplies final public terms and a privacy policy.").font(.caption).foregroundStyle(.secondary) }
