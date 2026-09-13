@@ -30,6 +30,7 @@ targets:
         GENERATE_INFOPLIST_FILE: NO
     scheme:
       gatherCoverageData: true
+      storeKitConfiguration: UITests/PlanBridge.storekit
       testTargets:
         - PlanBridgeUITests
   PlanBridgeUITests:

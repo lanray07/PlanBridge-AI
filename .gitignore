@@ -12,3 +12,4 @@ xcuserdata/
 *.pem
 *.key
 __pycache__/
+marketing/storekit-test-debug/

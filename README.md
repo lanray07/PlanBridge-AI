@@ -46,7 +46,7 @@ No live airline, rail, hotel, restaurant or email integration exists. The app sa
 
 ## StoreKit setup
 
-Reserved product IDs: `com.planbridge.ai.pro.monthly`, `com.planbridge.ai.pro.annual`. Create the real products under your app's subscription group. Set the real public URLs in `ReleaseConfiguration` only after policy review. Purchases are disabled until those URLs exist. Dynamic StoreKit names and prices are displayed when available; no price or trial is invented.
+Product IDs: `com.planbridge.ai.pro.monthly`, `com.planbridge.ai.pro.annual`. Both products are configured in App Store Connect. Public terms and privacy URLs are configured in `ReleaseConfiguration`, enabling the purchase buttons when StoreKit returns products. Names and prices come from StoreKit; no trial is advertised. `UITests/PlanBridge.storekit` is a test-only local catalogue; production builds use App Store Connect products. The release workflow tests purchases, restart recovery, restore and empty restore before uploading.
 
 This version grants Pro voice queries and unlimited trip checks. Three trip checks are locally free. All privacy controls are free. The broader proposed premium integrations and widgets are not represented as available products.
 

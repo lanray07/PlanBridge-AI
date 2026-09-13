@@ -39,14 +39,12 @@ Both have review notes and the accepted 1024 x 1024 promotional image marketing/
 
 ## Still required
 
-- Final publisher terms link in app ReleaseConfiguration. Public support and privacy URLs are now configured (see below).
-- Copyright owner.
-- Distribution availability.
+- App-level distribution availability.
 - Final App Privacy disclosures and content-rights information.
 - Validate the StoreKit purchase flow in the uploaded build; the captured simulator screen reports unavailable products.
 - Final validation of marketing claims and screenshot accuracy against that build.
 
-Purchases remain disabled in development source until public legal URLs and products are configured. Pricing and availability were not guessed. No family sharing or monthly-with-12-month-commitment option was enabled.
+Public terms and privacy URLs are configured in source. Both subscription products have all current countries/regions selected. No family sharing or monthly-with-12-month-commitment option was enabled. Copyright is populated in App Store Connect.
 
 The user supplied review contact details, which were saved successfully in App Store Connect along with the pending review notes. Contact details are not copied into this public repository.
 
@@ -64,7 +62,7 @@ The project was pushed to https://github.com/lanray07/PlanBridge-AI on main. Pub
 - Privacy: https://github.com/lanray07/PlanBridge-AI/blob/main/PRIVACY.md
 - Marketing: https://github.com/lanray07/PlanBridge-AI
 
-All three URLs were saved in App Store Connect. Support and marketing persistence was verified in a separate fresh version page despite the review-contact save error. The privacy link is also configured in the app source. Purchases remain disabled because final terms are not configured. GitHub's macOS verification workflow started after the initial push; its result was still pending at this update.
+All three URLs were saved in App Store Connect. Public [terms](https://github.com/lanray07/PlanBridge-AI/blob/main/TERMS.md) now link to Apple's Standard EULA and explain subscription billing. Terms and privacy links are included in the app and listing description.
 
 ## Native build and subscription assets
 
