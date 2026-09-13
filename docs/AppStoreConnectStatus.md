@@ -41,7 +41,7 @@ Both have review notes and the accepted 1024 x 1024 promotional image marketing/
 
 - App-level distribution availability.
 - Final App Privacy disclosures and content-rights information.
-- Validate the StoreKit purchase flow in the uploaded build; the captured simulator screen reports unavailable products.
+- Resolve purchase/restore transaction failures in native tests; see [StoreKit validation](StoreKitValidation.md). Product loading and a priced native screenshot are now available.
 - Final validation of marketing claims and screenshot accuracy against that build.
 
 Public terms and privacy URLs are configured in source. Both subscription products have all current countries/regions selected. No family sharing or monthly-with-12-month-commitment option was enabled. Copyright is populated in App Store Connect.
@@ -66,6 +66,6 @@ All three URLs were saved in App Store Connect. Public [terms](https://github.co
 
 ## Native build and subscription assets
 
-Xcode 26.3 core and simulator UI tests passed in run 34734882315. Both subscription review fields now contain the actual simulator Pro-screen capture from marketing/native-subscription-review, with notes explaining unavailable StoreKit products and the remaining purchase validation work. Both retain the promotional image.
+Xcode 26.3 core and simulator UI tests passed in run 34734882315. Both subscription review fields received actual simulator Pro-screen captures. The monthly image was later updated to the priced capture from run 34737813698. App Store Connect signed out before the annual image could be replaced. Both retain the promotional image. Updated terms and availability are saved; transaction validation remains blocked as detailed in [StoreKit validation](StoreKitValidation.md).
 
 [Release run 34735547650](https://github.com/lanray07/PlanBridge-AI/actions/runs/34735547650) succeeded: version 1.0.0, build 5, source efc5dc4. Xcode reported ARCHIVE SUCCEEDED, Upload succeeded (100%), and EXPORT SUCCEEDED. Secrets remained on the GitHub runner. Signing is performed during App Store export using the existing API key. No App Review submission or public release was performed.
