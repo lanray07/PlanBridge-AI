@@ -39,7 +39,7 @@ Both have review notes and the accepted 1024 x 1024 promotional image marketing/
 
 ## Still required
 
-- Public support and privacy-policy URLs; final legal links in app ReleaseConfiguration.
+- Final publisher terms link in app ReleaseConfiguration. Public support and privacy URLs are now configured (see below).
 - Copyright owner and app review contact name, email and phone.
 - Monthly and annual prices, currency and distribution availability.
 - Final App Privacy disclosures and content-rights information.
@@ -50,3 +50,13 @@ Both have review notes and the accepted 1024 x 1024 promotional image marketing/
 Purchases remain disabled in development source until public legal URLs and products are configured. Pricing and availability were not guessed. No family sharing or monthly-with-12-month-commitment option was enabled.
 
 The final added review-note paragraph about illustrative artwork is entered but unsaved: Apple rejected this save because review contact first name, last name, email and phone are missing. Existing previously saved metadata remains. The browser is left on this form with the additional paragraph intact; save it after providing the contact fields.
+
+## GitHub publication
+
+The project was pushed to https://github.com/lanray07/PlanBridge-AI on main. Public pages were verified without authentication:
+
+- Support: https://github.com/lanray07/PlanBridge-AI/blob/main/SUPPORT.md
+- Privacy: https://github.com/lanray07/PlanBridge-AI/blob/main/PRIVACY.md
+- Marketing: https://github.com/lanray07/PlanBridge-AI
+
+All three URLs were saved in App Store Connect. Support and marketing persistence was verified in a separate fresh version page despite the review-contact save error. The privacy link is also configured in the app source. Purchases remain disabled because final terms are not configured. GitHub's macOS verification workflow started after the initial push; its result was still pending at this update.
