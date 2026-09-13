@@ -40,8 +40,8 @@ Both have review notes and the accepted 1024 x 1024 promotional image marketing/
 ## Still required
 
 - Final publisher terms link in app ReleaseConfiguration. Public support and privacy URLs are now configured (see below).
-- Copyright owner and app review contact name, email and phone.
-- Monthly and annual prices, currency and distribution availability.
+- Copyright owner.
+- Distribution availability.
 - Final App Privacy disclosures and content-rights information.
 - A compiled, signed and tested native iOS build uploaded to App Store Connect.
 - Genuine in-app subscription purchase screenshots for review.
@@ -49,7 +49,13 @@ Both have review notes and the accepted 1024 x 1024 promotional image marketing/
 
 Purchases remain disabled in development source until public legal URLs and products are configured. Pricing and availability were not guessed. No family sharing or monthly-with-12-month-commitment option was enabled.
 
-The final added review-note paragraph about illustrative artwork is entered but unsaved: Apple rejected this save because review contact first name, last name, email and phone are missing. Existing previously saved metadata remains. The browser is left on this form with the additional paragraph intact; save it after providing the contact fields.
+The user supplied review contact details, which were saved successfully in App Store Connect along with the pending review notes. Contact details are not copied into this public repository.
+
+## Launch pricing
+
+User authorized competitive pricing. UK base prices selected on 13 September 2026: GBP 2.99 per month and GBP 24.99 per year upfront. Annual billing saves GBP 10.89 (about 30.4%) compared with twelve monthly payments. Apple's generated equivalents cover 175 price regions, including USD 2.99/month and USD 24.99/year in the US. Price schedules do not by themselves configure territory availability or submit the products for review.
+
+Pricing reflects the current limited Pro benefits. Benchmark: [TripIt Pro](https://www.tripit.com/web/pro/pricing) advertises USD 49/year with additional travel services. No introductory trial or promotional discount was configured.
 
 ## GitHub publication
 
