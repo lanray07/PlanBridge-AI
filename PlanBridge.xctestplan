@@ -1,0 +1,6 @@
+{
+  "configurations": [{"id": "BCDE8131-2880-47FE-90CD-801B2CA03830", "name": "StoreKit", "options": {}}],
+  "defaultOptions": {"storeKitConfiguration": {"identifier": "UITests/PlanBridge.storekit"}},
+  "testTargets": [],
+  "version": 1
+}

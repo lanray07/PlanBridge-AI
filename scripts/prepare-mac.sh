@@ -12,4 +12,5 @@ if ! command -v xcodegen >/dev/null; then
   exit 1
 fi
 xcodegen generate
+python3 scripts/prepare-testplan.py
 echo "Open PlanBridgeAI.xcodeproj, select your signing team, then run on iPhone or iPad."

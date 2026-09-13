@@ -31,6 +31,9 @@ targets:
     scheme:
       gatherCoverageData: true
       storeKitConfiguration: UITests/PlanBridge.storekit
+      testPlans:
+        - path: PlanBridge.xctestplan
+          defaultPlan: true
       testTargets:
         - PlanBridgeUITests
   PlanBridgeUITests:
