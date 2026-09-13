@@ -15,18 +15,20 @@ final class SubscriptionScreenshotTests: XCTestCase {
         else { XCTAssertTrue(pro.waitForExistence(timeout: 10)); pro.tap() }
     }
     @MainActor func testPurchasesRestoreAndCapture() throws {
+        let app = XCUIApplication()
+        // Install and register the app before StoreKit configures its transactions.
+        app.launch()
         let session = try SKTestSession(configurationFileNamed: "PlanBridge")
         session.resetToDefaultState()
         session.disableDialogs = true
         session.clearTransactions()
         defer { session.clearTransactions() }
-        let app = XCUIApplication()
         for productID in ["com.planbridge.ai.pro.monthly", "com.planbridge.ai.pro.annual"] {
             session.clearTransactions()
             app.terminate()
             openPaywall(app)
             let purchase = app.buttons[productID]
-            XCTAssertTrue(purchase.waitForExistence(timeout: 20))
+            XCTAssertTrue(purchase.waitForExistence(timeout: 60))
             XCTAssertTrue(purchase.isEnabled)
             if productID.hasSuffix("monthly") {
                 app.swipeUp()

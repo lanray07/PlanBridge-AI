@@ -19,9 +19,12 @@ import SwiftUI
                 }
             }
         }
-        await refreshEntitlements()
+        // Receipt synchronization can be slow on a fresh installation. Load the
+        // catalogue independently so it does not block the subscription screen.
+        async let entitlementRefresh: Void = refreshEntitlements()
         do { products = try await Product.products(for:Self.productIDs).sorted { $0.price < $1.price } }
         catch { message = "Subscriptions could not be loaded. Please try again." }
+        await entitlementRefresh
     }
     func refreshEntitlements() async {
         var entitled = false
