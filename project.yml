@@ -30,3 +30,15 @@ targets:
         GENERATE_INFOPLIST_FILE: NO
     scheme:
       gatherCoverageData: true
+      testTargets:
+        - PlanBridgeUITests
+  PlanBridgeUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [UITests]
+    dependencies:
+      - target: PlanBridgeAI
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.PlanBridgeAI.app.uitests

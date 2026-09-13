@@ -1,9 +1,9 @@
 import AppIntents
 
 struct CheckPlansIntent: AppIntent {
-    static var title: LocalizedStringResource = "Check my plans"
-    static var description = IntentDescription("Open PlanBridge to review your available plans.")
-    static var openAppWhenRun = true
+    static let title: LocalizedStringResource = "Check my plans"
+    static let description = IntentDescription("Open PlanBridge to review your available plans.")
+    static let openAppWhenRun = true
     func perform() async throws -> some IntentResult { .result() }
 }
 struct PlanShortcuts: AppShortcutsProvider {
