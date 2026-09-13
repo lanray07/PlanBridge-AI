@@ -5,7 +5,7 @@
 - Public terms link to Apple's Standard EULA and explain subscription billing. Terms and privacy links are wired into the app and saved in the listing description.
 - App Store Connect products use GBP 2.99/month and GBP 24.99/year upfront, with Apple's regional equivalents. Both have all current territories selected.
 - Native product loading works. The unedited priced paywall capture is [subscription-priced.png](../marketing/native-subscription-review/subscription-priced.png). Both prices, periods, restore and legal links appear.
-- The monthly review screenshot was replaced and Save returned disabled before App Store Connect signed out. The annual record still has the previous native review capture; both retain promotional artwork.
+- Both subscription review screenshots were replaced with the priced native capture, and both saves completed. Both retain promotional artwork. Their review notes identify the unresolved transaction validation; the temporary App Store Connect sign-out was resolved.
 - Product loading now runs independently of receipt synchronization. Purchases show an App Store progress indicator.
 - Core tests and Xcode 26.3 compilation pass.
 
@@ -21,4 +21,4 @@ No updated build was uploaded by these failing runs. Version 1.0.0 build 5 remai
 
 ## Next work
 
-Restore the App Store Connect browser session, finish the annual screenshot update, and reproduce purchase/restore using an interactive native StoreKit or device sandbox session. Resolve the transaction failure before dispatching another release upload. Product-page illustrative screenshots and app-level privacy/availability details also need final release validation.
+Reproduce purchase/restore using an interactive native StoreKit or device sandbox session. Resolve the transaction failure before dispatching another release upload. Product-page illustrative screenshots and app-level privacy/availability details also need final release validation.

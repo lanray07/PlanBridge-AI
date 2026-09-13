@@ -66,6 +66,6 @@ All three URLs were saved in App Store Connect. Public [terms](https://github.co
 
 ## Native build and subscription assets
 
-Xcode 26.3 core and simulator UI tests passed in run 34734882315. Both subscription review fields received actual simulator Pro-screen captures. The monthly image was later updated to the priced capture from run 34737813698. App Store Connect signed out before the annual image could be replaced. Both retain the promotional image. Updated terms and availability are saved; transaction validation remains blocked as detailed in [StoreKit validation](StoreKitValidation.md).
+Xcode 26.3 core and simulator UI tests passed in run 34734882315. Both subscription review fields were subsequently updated to the priced native capture from run 34737813698. Both retain the promotional image. Updated terms, availability and accurate validation notes are saved; transaction validation remains blocked as detailed in [StoreKit validation](StoreKitValidation.md).
 
 [Release run 34735547650](https://github.com/lanray07/PlanBridge-AI/actions/runs/34735547650) succeeded: version 1.0.0, build 5, source efc5dc4. Xcode reported ARCHIVE SUCCEEDED, Upload succeeded (100%), and EXPORT SUCCEEDED. Secrets remained on the GitHub runner. Signing is performed during App Store export using the existing API key. No App Review submission or public release was performed.
