@@ -36,7 +36,7 @@ Windows paths with spaces can trigger a SwiftPM output-map error. Use a scratch 
 swift test --scratch-path C:/Users/User/.codex/builds/PlanBridgeAI
 ```
 
-The Foundation core compiled and all 22 tests passed in this workspace. All Apple app Swift files passed syntax parsing. **The iOS application has not been SDK-compiled, simulator-tested or signed on this Windows machine.** The GitHub Actions macOS workflow is supplied but has not been run remotely.
+All 22 core tests passed. GitHub Actions with Xcode 26.3 also compiled the iOS app and passed the simulator test opening the subscription screen. Release run 34735547650 archived, signed and uploaded version 1.0.0 build 5 to App Store Connect. Purchase transactions and the broader device checklist remain unverified; this is still a development build.
 
 ## Data and integrations
 

@@ -1,0 +1,26 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "DC4CD8B3-4457-4153-9087-A0D7A2F9BFD9",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "19F0BC40-E2A0-4FAD-B91E-256D604683DF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "subscription-review-details_0_63CF1B0E-F66E-4535-84C2-DD42232AA6CC.png",
+        "timestamp" : 1789269435.584
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "DC4CD8B3-4457-4153-9087-A0D7A2F9BFD9",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "3047065A-B4C2-4C68-9C5F-29EBB8BDF61B.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "subscription-review_0_7DA73365-F8E2-44B0-BEE7-97E07EC875BF.png",
+        "timestamp" : 1789269434.295
+      }
+    ],
+    "testIdentifier" : "SubscriptionScreenshotTests/testCapturePaywall()",
+    "testIdentifierURL" : "test://com.apple.xcode/PlanBridgeAI/PlanBridgeUITests/SubscriptionScreenshotTests/testCapturePaywall"
+  }
+]

@@ -23,3 +23,8 @@ SwiftPM emitted a Windows symbolic-link warning for its `debug` convenience dire
 The generated icon master is 1254×1254. A second image-tool resize request returned the same dimensions. The Mac preparation script performs the exact 1024×1024 build-resource conversion and preserves the master. That Mac conversion has not been executed here.
 
 Humanised visuals were inspected inline for the requested subjects, headline legibility, evidence cards and demo labelling. They remain campaign concepts: some logo treatments and incidental environmental text vary across images. Final creative production must standardise those details and use validated app captures.
+# GitHub Xcode verification — 13 September 2026
+
+GitHub run 34734882315 built with Xcode 26.3, passed the Swift core tests and passed the native iPhone 16 Pro UI test that opens Settings > Explore PlanBridge Pro. Actual screenshots are retained in marketing/native-subscription-review and uploaded to the monthly and annual subscription review fields. The screen correctly reports products unavailable in that simulator session; this is not a verified StoreKit purchase transaction.
+
+The initial archive failed because automatic development provisioning required a registered device. Deferring signing to App Store export resolved provisioning. Apple then required all four iPad multitasking orientations; an iPad-specific Info.plist entry fixed validation. Release run 34735547650 successfully archived, signed and uploaded version 1.0.0 build 5. App Store processing and release readiness are separate from upload success.

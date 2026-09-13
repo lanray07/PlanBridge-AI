@@ -43,8 +43,7 @@ Both have review notes and the accepted 1024 x 1024 promotional image marketing/
 - Copyright owner.
 - Distribution availability.
 - Final App Privacy disclosures and content-rights information.
-- A compiled, signed and tested native iOS build uploaded to App Store Connect.
-- Genuine in-app subscription purchase screenshots for review.
+- Validate the StoreKit purchase flow in the uploaded build; the captured simulator screen reports unavailable products.
 - Final validation of marketing claims and screenshot accuracy against that build.
 
 Purchases remain disabled in development source until public legal URLs and products are configured. Pricing and availability were not guessed. No family sharing or monthly-with-12-month-commitment option was enabled.
@@ -66,3 +65,9 @@ The project was pushed to https://github.com/lanray07/PlanBridge-AI on main. Pub
 - Marketing: https://github.com/lanray07/PlanBridge-AI
 
 All three URLs were saved in App Store Connect. Support and marketing persistence was verified in a separate fresh version page despite the review-contact save error. The privacy link is also configured in the app source. Purchases remain disabled because final terms are not configured. GitHub's macOS verification workflow started after the initial push; its result was still pending at this update.
+
+## Native build and subscription assets
+
+Xcode 26.3 core and simulator UI tests passed in run 34734882315. Both subscription review fields now contain the actual simulator Pro-screen capture from marketing/native-subscription-review, with notes explaining unavailable StoreKit products and the remaining purchase validation work. Both retain the promotional image.
+
+[Release run 34735547650](https://github.com/lanray07/PlanBridge-AI/actions/runs/34735547650) succeeded: version 1.0.0, build 5, source efc5dc4. Xcode reported ARCHIVE SUCCEEDED, Upload succeeded (100%), and EXPORT SUCCEEDED. Secrets remained on the GitHub runner. Signing is performed during App Store export using the existing API key. No App Review submission or public release was performed.
