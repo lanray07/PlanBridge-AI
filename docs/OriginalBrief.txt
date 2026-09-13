@@ -1,0 +1,1509 @@
+CODEX MASTER PROMPT
+BUILD A PREMIUM iOS APP — “PLANBRIDGE AI”
+
+ROLE
+
+Act as a senior iOS engineer, SwiftUI architect, calendar/integration
+engineer, travel-tech product designer, AI product architect, privacy
+engineer, voice-interface specialist, StoreKit specialist, accessibility
+specialist and App Store creative director.
+
+Build a production-quality premium iPhone/iPad application called:
+
+PLANBRIDGE AI
+
+Working App Store subtitle:
+
+“Calendar & Booking Monitor”
+
+PRIMARY TAGLINE:
+
+“Catch conflicts before they disrupt your plans.”
+
+SECONDARY LINE:
+
+“Calendars, travel and bookings — finally on the same page.”
+
+CORE PRODUCT PHILOSOPHY:
+
+“Don’t make me compare five apps. Tell me what doesn’t line up.”
+
+VOICE PHILOSOPHY:
+
+“Ask about your plans. Get a clear answer.”
+
+VISUAL PHILOSOPHY:
+
+“Real plans. Real people. Problems caught early.”
+
+==================================================
+1. PRODUCT CONCEPT
+==================================================
+
+PlanBridge AI is a personal schedule and booking consistency monitor.
+
+It brings together supported information from:
+
+• calendars
+• flights
+• trains
+• hotels
+• restaurant reservations
+• appointments
+• events
+• meetings
+• travel itineraries
+• manually entered bookings
+• imported confirmation emails/files
+
+It detects potential conflicts and inconsistencies.
+
+Examples:
+
+“You have dinner booked in Manchester at 19:30, but your train is
+scheduled to arrive at 19:42.”
+
+“Your flight leaves Heathrow at 08:15, but your calendar has a meeting
+ending at 07:30 in central London.”
+
+“Your hotel check-in begins Monday, but your flight arrives Tuesday.”
+
+“Two appointments overlap by 25 minutes.”
+
+“Your restaurant booking is at 20:00, but your calendar says 19:30.”
+
+“Your return flight has changed, but the corresponding calendar event
+still shows the previous departure time.”
+
+The app should answer:
+
+“What conflicts?”
+
+“Why?”
+
+“How serious is it?”
+
+“What information disagrees?”
+
+“What should I check?”
+
+“What changed?”
+
+==================================================
+2. IMPORTANT PRODUCT BOUNDARY
+==================================================
+
+PlanBridge must NEVER pretend to have access to services that are not
+actually connected.
+
+Do not create fake:
+
+• airline integrations
+• hotel integrations
+• reservation integrations
+• email access
+• calendar access
+• live flight data
+• live train data
+
+Every connection shown in production must correspond to a real,
+implemented integration or user-provided data.
+
+During development use clearly marked DEMO DATA.
+
+Never fabricate delays, cancellations, reservation changes or availability.
+
+==================================================
+3. PLATFORM
+==================================================
+
+Build for:
+
+• iPhone
+• iPad
+
+Architect optional Apple Watch functionality.
+
+Use current Apple-native frameworks where appropriate:
+
+• Swift
+• SwiftUI
+• EventKit
+• SwiftData
+• UserNotifications
+• App Intents
+• Siri/Shortcuts where supported
+• StoreKit 2
+• BackgroundTasks
+• LocalAuthentication
+• Keychain
+• async/await
+• WidgetKit
+• ActivityKit where useful
+
+Follow current Apple Human Interface Guidelines.
+
+==================================================
+4. CORE DIFFERENTIATORS
+==================================================
+
+Build the product around:
+
+1. Conflict Detection
+2. Cross-Service Comparison
+3. Change Detection
+4. Travel-Time Conflicts
+5. Booking Consistency Checks
+6. Missing Calendar Event Detection
+7. Duplicate Booking Detection
+8. AI Conflict Explanation
+9. “What Should I Check?” actions
+10. Voice Queries
+11. Smart Alerts
+12. Daily Plan Check
+13. Trip Integrity Check
+14. Connection Confidence
+
+This should NOT become another generic calendar.
+
+==================================================
+5. ONBOARDING
+==================================================
+
+SCREEN 1
+
+Humanised scene:
+
+Professional preparing for a trip while looking at their phone.
+
+HEADLINE:
+
+“Your plans live in different places.”
+
+Show visually:
+
+Calendar
+Flight
+Hotel
+Dinner
+Train
+
+Then:
+
+“PlanBridge brings the important details together.”
+
+CTA:
+
+Check My Plans
+
+--------------------------------------------------
+
+SCREEN 2
+
+HEADLINE:
+
+“Catch conflicts before they catch you.”
+
+Example:
+
+DINNER
+Manchester
+19:30
+
+TRAIN ARRIVAL
+Manchester
+19:42
+
+CONFLICT
+
+“Your train arrives 12 minutes after your dinner reservation starts.”
+
+--------------------------------------------------
+
+SCREEN 3
+
+HEADLINE:
+
+“Know when something changes.”
+
+Example:
+
+FLIGHT CHANGED
+
+Previous:
+16:20
+
+Current:
+18:05
+
+Calendar:
+Still shows 16:20
+
+CTA:
+
+Review
+
+--------------------------------------------------
+
+SCREEN 4 — VOICE
+
+Humanised scene:
+
+Traveller packing or walking through an airport while using AirPods.
+
+HEADLINE:
+
+“Ask about your plans.”
+
+Example:
+
+USER:
+
+“Do I have any conflicts tomorrow?”
+
+PLANBRIDGE:
+
+“Yes. Your train is scheduled to arrive 12 minutes after your dinner
+reservation begins.”
+
+--------------------------------------------------
+
+SCREEN 5
+
+HEADLINE:
+
+“Start the day knowing what needs attention.”
+
+Show:
+
+TODAY
+
+✓ 4 plans aligned
+
+⚠ 1 possible conflict
+
+⚠ 1 item changed
+
+--------------------------------------------------
+
+SCREEN 6
+
+HEADLINE:
+
+“Your plans are personal.”
+
+Explain privacy and permissions.
+
+==================================================
+6. HOME — PLAN HEALTH
+==================================================
+
+Create a premium home dashboard.
+
+Greeting:
+
+“Good morning.”
+
+Then:
+
+YOUR DAY
+
+6 plans
+
+4 aligned
+
+1 possible conflict
+
+1 changed
+
+Primary card:
+
+NEEDS ATTENTION
+
+Dinner
+19:30
+
+Train arrival
+19:42
+
+“Your scheduled arrival is after the reservation begins.”
+
+CTA:
+
+Review Conflict
+
+Then:
+
+COMING UP
+
+Flight
+
+Hotel
+
+Meeting
+
+Dinner
+
+Keep the screen calm.
+
+Do NOT create a dense enterprise dashboard.
+
+==================================================
+7. CONFLICT ENGINE
+==================================================
+
+Create a deterministic:
+
+PlanConflictEngine
+
+The LLM should NOT be responsible for deciding whether two timestamps
+mathematically overlap.
+
+The deterministic engine calculates.
+
+AI explains.
+
+Architecture:
+
+Connected/User Data
+↓
+Normalisation
+↓
+Conflict Engine
+↓
+Structured Evidence
+↓
+AI Explanation
+↓
+User
+
+==================================================
+8. CONFLICT TYPES
+==================================================
+
+Detect:
+
+TIME OVERLAP
+
+Two plans occur simultaneously.
+
+Example:
+
+Meeting:
+14:00–15:00
+
+Dentist:
+14:30
+
+--------------------------------------------------
+
+TRAVEL-TIME CONFLICT
+
+Insufficient time to move between locations.
+
+Example:
+
+Meeting ends:
+17:00
+
+Restaurant:
+17:15
+
+Travel estimate:
+32 minutes
+
+--------------------------------------------------
+
+ARRIVAL CONFLICT
+
+Flight/train arrives after another booking begins.
+
+--------------------------------------------------
+
+DEPARTURE CONFLICT
+
+Another event may leave insufficient time to reach the departure point.
+
+--------------------------------------------------
+
+LOCATION CONFLICT
+
+Two nearby-time events appear in geographically incompatible places.
+
+--------------------------------------------------
+
+DATE MISMATCH
+
+Hotel/transport/event dates disagree.
+
+--------------------------------------------------
+
+TIME MISMATCH
+
+Calendar and booking source show different times.
+
+--------------------------------------------------
+
+DUPLICATE BOOKING
+
+Potential duplicate reservations.
+
+--------------------------------------------------
+
+MISSING CALENDAR ITEM
+
+Booking exists but no corresponding calendar item appears.
+
+--------------------------------------------------
+
+STALE CALENDAR ITEM
+
+Source booking changed but corresponding calendar event appears unchanged.
+
+--------------------------------------------------
+
+CONNECTION RISK
+
+Travel connections have limited scheduled transfer time.
+
+Do not label a connection “impossible” unless deterministic data supports that conclusion.
+
+==================================================
+9. CONFLICT SEVERITY
+==================================================
+
+Use understandable levels:
+
+INFO
+
+CHECK
+
+IMPORTANT
+
+URGENT
+
+Avoid fear-based red alerts everywhere.
+
+Example:
+
+IMPORTANT
+
+“Your flight departure changed by 1 hour 45 minutes, but the calendar
+event appears unchanged.”
+
+Explain why the level was assigned.
+
+==================================================
+10. CONFLICT CONFIDENCE
+==================================================
+
+Every conflict should include confidence.
+
+Example:
+
+HIGH CONFIDENCE
+
+Why?
+
+“Both bookings contain confirmed times and locations.”
+
+Or:
+
+POSSIBLE CONFLICT
+
+Why?
+
+“The meeting does not include a location.”
+
+Do not pretend incomplete data is certain.
+
+==================================================
+11. EXPLAIN THIS CONFLICT
+==================================================
+
+Each conflict screen answers:
+
+WHAT HAPPENED?
+
+WHY IS THIS FLAGGED?
+
+WHAT INFORMATION WAS COMPARED?
+
+WHAT SHOULD I CHECK?
+
+Example:
+
+DINNER vs TRAIN
+
+Dinner:
+19:30
+
+Train scheduled arrival:
+19:42
+
+Difference:
+12 minutes
+
+Plain-language explanation:
+
+“Your train is scheduled to arrive 12 minutes after your dinner
+reservation begins.”
+
+Possible actions:
+
+Review Dinner
+
+Review Train
+
+Add Buffer
+
+Dismiss
+
+Mark Intentional
+
+==================================================
+12. SMART BUFFER
+==================================================
+
+Allow users to define buffers.
+
+Examples:
+
+Meetings:
+10 minutes
+
+Airport:
+2 hours
+
+Train:
+20 minutes
+
+Restaurant:
+15 minutes
+
+Appointments:
+15 minutes
+
+Custom.
+
+Use these preferences in conflict calculations.
+
+==================================================
+13. TRAVEL-TIME AWARENESS
+==================================================
+
+Where reliable routing information is available, calculate time required
+between locations.
+
+Example:
+
+Meeting ends:
+17:00
+
+Dinner:
+18:00
+
+Estimated travel:
+47 min
+
+User buffer:
+15 min
+
+Needed:
+62 min
+
+Available:
+60 min
+
+Result:
+
+POSSIBLE CONFLICT
+
+“Your current schedule leaves about 2 minutes less than your preferred
+travel buffer.”
+
+Do not fabricate travel estimates.
+
+==================================================
+14. TRIP VIEW
+==================================================
+
+Create:
+
+MY TRIPS
+
+Example:
+
+PARIS
+18–22 September
+
+Timeline:
+
+Flight
+Hotel
+Dinner
+Museum
+Train
+Return Flight
+
+Then:
+
+TRIP CHECK
+
+✓ Flight → hotel
+
+✓ Hotel dates
+
+⚠ Dinner timing
+
+✓ Return flight
+
+Headline:
+
+“1 item worth checking.”
+
+==================================================
+15. TRIP INTEGRITY CHECK
+==================================================
+
+Flagship premium feature:
+
+CHECK MY TRIP
+
+Analyse:
+
+Outbound transport
+
+Accommodation dates
+
+Transfers
+
+Reservations
+
+Calendar events
+
+Return transport
+
+Detect:
+
+Missing night
+
+Wrong date
+
+Location mismatch
+
+Impossible/very tight timing
+
+Duplicate reservation
+
+Calendar mismatch
+
+Changed booking
+
+Output:
+
+TRIP CHECK COMPLETE
+
+12 items checked
+
+10 aligned
+
+2 need attention
+
+==================================================
+16. CALENDAR INTEGRATION
+==================================================
+
+Use EventKit correctly.
+
+Allow users to select calendars.
+
+Examples:
+
+Personal
+
+Work
+
+Family
+
+Travel
+
+Do not require access to calendars that the user does not want monitored.
+
+Explain permission requests before system prompts.
+
+==================================================
+17. BOOKING IMPORT
+==================================================
+
+Support architecture for:
+
+Manual booking
+
+Calendar event
+
+Email confirmation import where genuinely implemented
+
+PDF
+
+Screenshot/image
+
+Wallet/pass information where public APIs permit
+
+ICS
+
+Structured itinerary data
+
+Never silently save extracted information.
+
+Show:
+
+WE FOUND
+
+Date
+Time
+Location
+Reference
+Provider
+
+Then:
+
+“Is this correct?”
+
+User confirms.
+
+==================================================
+18. EMAIL BOOKING DISCOVERY
+==================================================
+
+If a real authorised email integration is implemented, detect relevant
+confirmation messages such as:
+
+Flights
+
+Hotels
+
+Trains
+
+Restaurants
+
+Appointments
+
+Events
+
+Car rentals
+
+Do not claim to read email without explicit permission.
+
+Minimise email access.
+
+Do not ingest unrelated messages unnecessarily.
+
+==================================================
+19. CHANGE DETECTION
+==================================================
+
+Create:
+
+WHAT CHANGED?
+
+Example:
+
+BRITISH AIRWAYS FLIGHT
+
+Previous:
+16:20
+
+Current:
+18:05
+
+Calendar:
+16:20
+
+Then:
+
+“Your booking source and calendar no longer match.”
+
+CTA:
+
+Review
+
+Only report changes from reliable data.
+
+==================================================
+20. DAILY PLAN CHECK
+==================================================
+
+Every morning, optionally generate:
+
+TODAY'S PLAN CHECK
+
+Example:
+
+6 plans checked
+
+✓ 4 aligned
+
+⚠ 1 possible conflict
+
+↻ 1 changed
+
+Then:
+
+“Your first item needing attention is your 18:30 train.”
+
+Allow notification:
+
+“PlanBridge found one item worth checking today.”
+
+Avoid exposing sensitive itinerary details on lock screen by default.
+
+==================================================
+21. TOMORROW CHECK
+==================================================
+
+Optional evening notification:
+
+“Tomorrow has 5 plans. One timing issue may need attention.”
+
+User opens app for details.
+
+==================================================
+22. VOICE INTERACTION — FLAGSHIP FEATURE
+==================================================
+
+VOICE MUST BE INCLUDED THROUGHOUT THE PRODUCT.
+
+Create:
+
+ASK PLANBRIDGE
+
+Large microphone button.
+
+Users can naturally ask:
+
+“What's happening tomorrow?”
+
+“Do I have any conflicts today?”
+
+“Is my trip okay?”
+
+“What changed?”
+
+“When is my flight?”
+
+“Do I have enough time to get to dinner?”
+
+“What's my next booking?”
+
+“What time should I leave?”
+
+“Check my Paris trip.”
+
+“Does my hotel match my flight dates?”
+
+“What's the problem with Tuesday?”
+
+“Which plans don't match?”
+
+Responses must be based on actual available data.
+
+==================================================
+23. HANDS-FREE TRAVEL MODE
+==================================================
+
+Create optional:
+
+TRAVEL VOICE MODE
+
+Useful while:
+
+Walking
+
+Packing
+
+At airports
+
+At train stations
+
+Driving only where interactions comply with applicable platform safety expectations
+
+Example:
+
+User:
+
+“What do I need to know?”
+
+PlanBridge:
+
+“Your flight is currently scheduled for 18:05. Your calendar still
+shows 16:20.”
+
+User:
+
+“Anything else?”
+
+PlanBridge:
+
+“Your hotel dates align with the updated flight dates.”
+
+Keep responses short.
+
+==================================================
+24. VOICE COMMANDS
+==================================================
+
+Where supported using App Intents / Siri / Shortcuts:
+
+“Check my plans with PlanBridge.”
+
+“Check tomorrow.”
+
+“Check my trip.”
+
+“What's next?”
+
+“Any conflicts?”
+
+“What changed?”
+
+“Check my flight.”
+
+“Check my bookings.”
+
+“What's my next reservation?”
+
+“Run Trip Check.”
+
+Do not claim unsupported Siri functionality.
+
+==================================================
+25. VOICE CONFLICT EXPLANATION
+==================================================
+
+Example:
+
+USER:
+
+“Why is dinner flagged?”
+
+PLANBRIDGE:
+
+“Your dinner starts at 7:30 PM, but your train is scheduled to arrive
+at 7:42 PM.”
+
+USER:
+
+“What should I check?”
+
+PLANBRIDGE:
+
+“You may want to review the restaurant reservation and your train
+arrival time.”
+
+Avoid making unsupported decisions for the user.
+
+==================================================
+26. VOICE PRIVACY
+==================================================
+
+Clearly disclose:
+
+Whether audio is recorded
+
+Whether transcription occurs on-device
+
+Whether transcripts are stored
+
+Whether cloud AI receives transcripts
+
+Prefer on-device speech recognition where appropriate.
+
+Do not retain raw audio unnecessarily.
+
+==================================================
+27. SMART ALERTS
+==================================================
+
+Notifications:
+
+“Something changed in tomorrow's plans.”
+
+“Two plans now overlap.”
+
+“A booking and calendar event no longer match.”
+
+“Your arrival time may conflict with another reservation.”
+
+“Your trip has one item worth checking.”
+
+Allow:
+
+Immediate
+
+Important Only
+
+Daily Summary
+
+Off
+
+==================================================
+28. PRIVACY
+==================================================
+
+Calendar and travel information is sensitive.
+
+Implement:
+
+Face ID / Touch ID
+
+Keychain
+
+Secure networking
+
+Encrypted backend where appropriate
+
+Minimal data retention
+
+Granular connections
+
+Delete imported booking
+
+Delete trip
+
+Delete account
+
+Export data
+
+Disconnect service
+
+Private notifications
+
+Never sell itinerary/calendar data.
+
+==================================================
+29. AI ARCHITECTURE
+==================================================
+
+Create:
+
+PlanBridgeAIService
+
+Functions:
+
+explainConflict()
+
+summariseDay()
+
+summariseTrip()
+
+explainChange()
+
+answerPlanQuestion()
+
+summariseMismatch()
+
+generateCheckActions()
+
+AI does NOT calculate scheduling truth.
+
+Deterministic engines handle:
+
+timestamps
+
+duration
+
+overlaps
+
+buffers
+
+travel calculations
+
+date comparison
+
+location comparison
+
+change detection
+
+AI translates results into natural language.
+
+==================================================
+30. DATA MODEL
+==================================================
+
+Create models such as:
+
+PlanItem
+
+CalendarEvent
+
+TravelBooking
+
+HotelBooking
+
+RestaurantBooking
+
+Appointment
+
+TransportSegment
+
+Location
+
+PlanConflict
+
+ConflictEvidence
+
+PlanChange
+
+Trip
+
+TravelBuffer
+
+Connection
+
+SourceIntegration
+
+ImportRecord
+
+NotificationPreference
+
+Important PlanItem fields:
+
+id
+
+title
+
+type
+
+startDate
+
+endDate
+
+timezone
+
+location
+
+source
+
+sourceIdentifier
+
+confirmationNumber
+
+status
+
+lastUpdated
+
+createdAt
+
+==================================================
+31. TIME ZONES
+==================================================
+
+This is critical.
+
+Correctly handle:
+
+Local timezone
+
+Destination timezone
+
+Departure timezone
+
+Arrival timezone
+
+Daylight saving changes
+
+International date changes
+
+Do not perform naive timestamp comparisons.
+
+Store canonical timestamps appropriately while preserving source timezone
+information.
+
+Test timezone edge cases extensively.
+
+==================================================
+32. STOREKIT 2
+==================================================
+
+FREE:
+
+Calendar monitoring
+
+Manual bookings
+
+Basic conflict detection
+
+Limited Trip Checks
+
+Basic alerts
+
+PRO:
+
+Multiple service integrations
+
+Unlimited Trip Checks
+
+Travel-time conflicts
+
+Advanced change detection
+
+Voice queries
+
+Daily Plan Check
+
+Smart buffers
+
+Advanced travel monitoring
+
+Trip summaries
+
+Premium widgets
+
+Historical change tracking
+
+Do NOT paywall essential privacy controls.
+
+==================================================
+33. PREMIUM PAYWALL
+==================================================
+
+Headline:
+
+“Know when your plans don't line up.”
+
+Supporting copy:
+
+PlanBridge checks your calendars, travel and bookings for timing conflicts
+and changes — so you know what needs attention.
+
+Benefits:
+
+✓ Cross-Service Conflict Detection
+
+✓ Trip Check
+
+✓ Change Alerts
+
+✓ Travel-Time Conflicts
+
+✓ Voice Queries
+
+✓ Daily Plan Check
+
+Use StoreKit 2 pricing dynamically.
+
+Monthly
+
+Annual
+
+Restore Purchases
+
+Terms
+
+Privacy
+
+==================================================
+34. PREMIUM HUMANIZED APP STORE SCREENSHOTS
+==================================================
+
+THIS IS A CORE DELIVERABLE.
+
+Screenshots must be:
+
+• premium
+• relatable
+• understandable immediately
+• humanised
+• benefit-led
+• visually sophisticated
+
+Do NOT simply put raw app screens inside generic iPhone frames.
+
+Create real-life stories.
+
+--------------------------------------------------
+
+SCREENSHOT 1
+
+HUMANISED SCENE:
+
+Professional preparing to leave home with laptop bag/coat.
+
+HEADLINE:
+
+“Know when your plans don’t line up.”
+
+Show:
+
+Meeting ends
+17:30
+
+Train departs
+17:42
+
+Travel needed
+24 min
+
+POSSIBLE CONFLICT
+
+--------------------------------------------------
+
+SCREENSHOT 2
+
+HUMANISED SCENE:
+
+Traveller sitting naturally on a train.
+
+HEADLINE:
+
+“Your bookings. One clear timeline.”
+
+Show:
+
+Flight
+Hotel
+Dinner
+Train
+
+--------------------------------------------------
+
+SCREENSHOT 3
+
+HUMANISED SCENE:
+
+Traveller naturally checking phone at airport.
+
+HEADLINE:
+
+“Know when something changes.”
+
+Show:
+
+FLIGHT CHANGED
+
+16:20 → 18:05
+
+Calendar still:
+16:20
+
+--------------------------------------------------
+
+SCREENSHOT 4
+
+HUMANISED SCENE:
+
+Person arriving at railway station.
+
+HEADLINE:
+
+“Catch tight connections early.”
+
+Show:
+
+Arrival
+18:42
+
+Dinner
+19:00
+
+Travel
+24 min
+
+“Worth checking.”
+
+--------------------------------------------------
+
+SCREENSHOT 5 — VOICE HERO
+
+HUMANISED SCENE:
+
+Traveller packing luggage with phone nearby or wearing earbuds.
+
+HEADLINE:
+
+“Just ask about your plans.”
+
+USER:
+
+“Do I have any conflicts tomorrow?”
+
+PLANBRIDGE:
+
+“Yes. One item needs attention…”
+
+Use an elegant voice waveform.
+
+--------------------------------------------------
+
+SCREENSHOT 6
+
+HUMANISED SCENE:
+
+Person enjoying morning coffee.
+
+HEADLINE:
+
+“Start the day knowing what matters.”
+
+Show:
+
+TODAY
+
+6 plans checked
+
+4 aligned
+
+1 possible conflict
+
+1 changed
+
+--------------------------------------------------
+
+SCREENSHOT 7
+
+HUMANISED SCENE:
+
+Couple/friends travelling naturally.
+
+HEADLINE:
+
+“Check the whole trip before you leave.”
+
+Show:
+
+PARIS TRIP
+
+12 items checked
+
+10 aligned
+
+2 need attention
+
+--------------------------------------------------
+
+SCREENSHOT 8
+
+HUMANISED SCENE:
+
+Phone on desk beside passport, keys and travel documents.
+
+HEADLINE:
+
+“Your plans stay personal.”
+
+Show:
+
+Face ID
+
+Private Alerts
+
+Connected Services
+
+Data Controls
+
+==================================================
+35. HUMANIZED ASSET REQUIREMENTS
+==================================================
+
+Create

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleDisplayName</key><string>PlanBridge AI</string>
+<key>CFBundleExecutable</key><string>$(EXECUTABLE_NAME)</string>
+<key>CFBundleIdentifier</key><string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+<key>CFBundleName</key><string>$(PRODUCT_NAME)</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>CFBundleShortVersionString</key><string>$(MARKETING_VERSION)</string>
+<key>CFBundleVersion</key><string>$(CURRENT_PROJECT_VERSION)</string>
+<key>LSRequiresIPhoneOS</key><true/>
+<key>UILaunchScreen</key><dict/>
+<key>UISupportedInterfaceOrientations</key><array><string>UIInterfaceOrientationPortrait</string><string>UIInterfaceOrientationLandscapeLeft</string><string>UIInterfaceOrientationLandscapeRight</string></array>
+<key>NSCalendarsFullAccessUsageDescription</key><string>Choose which calendars PlanBridge reads to compare your events with bookings. PlanBridge does not edit your calendars.</string>
+<key>NSMicrophoneUsageDescription</key><string>Use the microphone while you ask a question about your plans. Audio is not saved.</string>
+<key>NSSpeechRecognitionUsageDescription</key><string>Transcribe your question on this device when on-device recognition is supported. Transcripts are not saved.</string>
+<key>NSFaceIDUsageDescription</key><string>Unlock your private plans with Face ID.</string>
+<key>ITSAppUsesNonExemptEncryption</key><false/>
+</dict></plist>

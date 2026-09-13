@@ -1,0 +1,15 @@
+name: Verify PlanBridge
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  core-and-ios:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install project generator
+        run: brew install xcodegen
+      - name: Test deterministic core
+        run: swift test
+      - name: Generate app project
+        run: bash scripts/prepare-mac.sh
+      - name: Build iOS simulator app
+        run: xcodebuild -project PlanBridgeAI.xcodeproj -scheme PlanBridgeAI -destination 'generic/platform=iOS Simulator' -derivedDataPath DerivedData CODE_SIGNING_ALLOWED=NO build

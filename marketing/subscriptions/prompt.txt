@@ -1,0 +1,5 @@
+Built-in image_gen prompt, 13 September 2026:
+
+Create a square subscription promotional image for PlanBridge Pro for Apple's App Store, a precise 1024x1024 PNG. Premium editorial still-life: an ivory itinerary notebook with a subtle generic calendar motif, passport with no country emblem, wireless earbuds and a small luggage tag on a sage-green stone desk, warm natural daylight. Central bold elegant bridge arch motif subtly embossed on notebook. Deep forest green, ivory and muted gold palette. Luxurious and calm, minimal composition, generous safe margins, no people, no device frame, no app screenshot. No text at all, no logo wordmark, no price, no discounts, no trial badges, no claims of live integrations. This is an image representing trip checks and on-device voice, designed to read clearly as a small square app subscription card. Full bleed opaque square, no rounded outer corners.
+
+The generator returned 1254x1254. The user explicitly authorised standard resizing after Apple's rejection. scripts/prepare-store-assets.py preserves the master and exports RGB 1024x1024.
