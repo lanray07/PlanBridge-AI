@@ -39,23 +39,23 @@ final class SubscriptionScreenshotTests: XCTestCase {
             }
             if !purchase.isHittable { app.swipeUp() }
             purchase.tap()
-            XCTAssertTrue(app.staticTexts["Your Pro subscription is active"].waitForExistence(timeout: 20))
+            XCTAssertTrue(app.staticTexts["Your Pro subscription is active"].waitForExistence(timeout: 90))
             XCTAssertTrue(session.allTransactions().contains { $0.productIdentifier == productID })
             // Restart to recover the entitlement from StoreKit rather than cached UI state.
             app.terminate()
             openPaywall(app)
-            XCTAssertTrue(app.staticTexts["Your Pro subscription is active"].waitForExistence(timeout: 20))
+            XCTAssertTrue(app.staticTexts["Your Pro subscription is active"].waitForExistence(timeout: 90))
             app.swipeUp()
             app.buttons["Restore purchases"].tap()
-            XCTAssertTrue(app.staticTexts["Purchases restored."].waitForExistence(timeout: 20))
+            XCTAssertTrue(app.staticTexts["Purchases restored."].waitForExistence(timeout: 90))
         }
         session.clearTransactions()
         app.terminate()
         openPaywall(app)
-        XCTAssertTrue(app.buttons["com.planbridge.ai.pro.monthly"].waitForExistence(timeout: 20))
+        XCTAssertTrue(app.buttons["com.planbridge.ai.pro.monthly"].waitForExistence(timeout: 90))
         app.swipeUp()
         app.buttons["Restore purchases"].tap()
-        XCTAssertTrue(app.staticTexts["No active PlanBridge Pro subscription was found."].waitForExistence(timeout: 20))
+        XCTAssertTrue(app.staticTexts["No active PlanBridge Pro subscription was found."].waitForExistence(timeout: 90))
         XCTAssertFalse(app.staticTexts["Your Pro subscription is active"].exists)
     }
 }

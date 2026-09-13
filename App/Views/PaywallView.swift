@@ -42,6 +42,7 @@ struct PaywallView: View {
                 }
                 if !ReleaseConfiguration.purchasesReady { Text("Purchases are disabled until the publisher supplies final public terms and a privacy policy.").font(.caption).foregroundStyle(.secondary) }
                 Button("Restore purchases") { Task { await subscription.restore() } }.disabled(subscription.isBusy)
+                if subscription.isBusy { ProgressView("Waiting for the App Store…").font(.caption) }
                 if let message = subscription.message { Text(message).font(.caption) }
                 Text("Subscriptions renew automatically. Manage or cancel in App Store settings. Your privacy controls always remain free.").font(.caption).foregroundStyle(.secondary)
                 HStack {
