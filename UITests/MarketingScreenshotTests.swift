@@ -56,7 +56,8 @@ final class MarketingScreenshotTests: XCTestCase {
         app.navigationBars.buttons.firstMatch.tap()
 
         app.buttons.matching(NSPredicate(format: "label == %@", "Ask")).firstMatch.tap()
-        XCTAssertTrue(app.staticTexts["Ask PlanBridge"].waitForExistence(timeout: 5))
+        // The eyebrow renders with an uppercase text style in the accessibility tree.
+        XCTAssertTrue(app.staticTexts["ASK PLANBRIDGE"].waitForExistence(timeout: 5))
         capture(app, "en-06-private-questions")
         app.buttons.matching(NSPredicate(format: "label == %@", "Today")).firstMatch.tap()
         app.buttons["Settings"].tap()
