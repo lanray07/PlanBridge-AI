@@ -1,6 +1,6 @@
 # App Store Connect preparation
 
-Updated 13 September 2026. App remains Prepare for Submission. Nothing was submitted for review or released.
+Updated 19 September 2026. App remains Prepare for Submission. Nothing was submitted for review or released.
 
 ## App identity
 
@@ -13,10 +13,11 @@ Updated 13 September 2026. App remains Prepare for Submission. Nothing was submi
 
 ## Saved metadata and assets
 
-- Subtitle: Calendar & Booking Monitor
+- Subtitle prepared: Calendar & Trip Planner
 - Primary category: Productivity; secondary: Travel
 - Age questionnaire saved; global rating 4+
 - Promotional text, description, keywords and review notes saved. Copy describes current implementation limits, including no live provider or cloud AI connection.
+- Revised English description, promotional text and 96-character keyword field saved on 19 September. Versioned copy is in `marketing/store/en-GB.json`. French, Spanish and German copy is drafted locally and must not be published as completed localization yet.
 - Sign-in required is off.
 - Eight images uploaded to the iPhone 6.5-inch slot, 1242 x 2688 RGB PNG.
 - Eight images uploaded to the iPad 13-inch slot, 2048 x 2732 RGB PNG.
@@ -43,6 +44,7 @@ Both have review notes and the accepted 1024 x 1024 promotional image marketing/
 - Final App Privacy disclosures and content-rights information.
 - Resolve purchase/restore transaction failures in native tests; see [StoreKit validation](StoreKitValidation.md). Product loading and a priced native screenshot are now available.
 - Final validation of marketing claims and screenshot accuracy against that build.
+- Complete bundled translation coverage and locale layout review before enabling additional languages. See [localization preparation](Localization.md) and [submission checklist](SubmissionChecklist.md).
 
 Public terms and privacy URLs are configured in source. Both subscription products have all current countries/regions selected. No family sharing or monthly-with-12-month-commitment option was enabled. Copyright is populated in App Store Connect.
 

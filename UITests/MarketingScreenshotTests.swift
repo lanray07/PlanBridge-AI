@@ -25,10 +25,11 @@ final class MarketingScreenshotTests: XCTestCase {
         XCTAssertTrue(app.navigationBars["Booking conflicts"].waitForExistence(timeout: 5))
         capture(app, "02-booking-conflicts")
 
-        app.tabBars.buttons["Timeline"].tap()
+        // iPad uses a top tab control rather than an XCUIElementTypeTabBar.
+        app.buttons.matching(NSPredicate(format: "label == %@", "Timeline")).firstMatch.tap()
         XCTAssertTrue(app.navigationBars["Calendar timeline"].waitForExistence(timeout: 5))
         capture(app, "03-calendar-timeline")
-        app.tabBars.buttons["My trips"].tap()
+        app.buttons.matching(NSPredicate(format: "label == %@", "My trips")).firstMatch.tap()
         XCTAssertTrue(app.navigationBars["Trip organizer"].waitForExistence(timeout: 5))
         capture(app, "04-trip-organizer")
     }

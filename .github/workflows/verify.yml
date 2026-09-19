@@ -20,6 +20,8 @@ jobs:
         run: xcodebuild -project PlanBridgeAI.xcodeproj -scheme PlanBridgeAI -destination 'generic/platform=iOS Simulator' -derivedDataPath DerivedData CODE_SIGNING_ALLOWED=NO build
       - name: Export public interface strings for translation
         run: xcodebuild -exportLocalizations -project PlanBridgeAI.xcodeproj -localizationPath LocalizationExport -exportLanguage en CODE_SIGNING_ALLOWED=NO
+      - name: Check translation drafts and report coverage
+        run: python3 scripts/prepare-localizations.py 'LocalizationExport/en.xcloc/Source Contents/App/Resources/Localizable.xcstrings'
       - uses: actions/upload-artifact@v4
         with:
           name: localization-source
