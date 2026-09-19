@@ -12,6 +12,8 @@ jobs:
         run: brew install xcodegen
       - name: Test deterministic core
         run: swift test
+      - name: Validate store copy
+        run: python3 scripts/validate-store-metadata.py
       - name: Generate app project
         run: bash scripts/prepare-mac.sh
       - name: Build iOS simulator app

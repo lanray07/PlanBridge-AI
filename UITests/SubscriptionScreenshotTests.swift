@@ -15,9 +15,13 @@ final class SubscriptionScreenshotTests: XCTestCase {
         else { XCTAssertTrue(pro.waitForExistence(timeout: 10)); pro.tap() }
     }
     @MainActor func testPurchasesRestoreAndCapture() throws {
+        continueAfterFailure = false
         let app = XCUIApplication()
         // Install and register the app before StoreKit configures its transactions.
         app.launch()
+        // Configure the test session with the app stopped so its startup
+        // entitlement request cannot overlap a reset of the transaction store.
+        app.terminate()
         let session = try SKTestSession(configurationFileNamed: "PlanBridge")
         session.resetToDefaultState()
         session.disableDialogs = true
