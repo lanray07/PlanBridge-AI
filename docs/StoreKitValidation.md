@@ -1,4 +1,10 @@
-# StoreKit validation status — 13 September 2026
+# StoreKit validation status — 19 September 2026
+
+## Latest result
+
+[Run 35457681244](https://github.com/lanray07/PlanBridge-AI/actions/runs/35457681244), source aafa487, passed all 22 core tests and the full monthly/annual purchase, restart recovery, restore and empty-restore UI test. Archive, upload and export succeeded for version 1.0.0 build 15. The test now terminates the installed app before resetting StoreKit, avoiding overlap with its startup entitlement request, and stops on its first failure. No purchase assertion was removed. This passing run supports the test-setup race hypothesis; it is not evidence of a production StoreKit service defect.
+
+Build 15 supersedes build 5 as the latest confirmed upload. Newer screenshot wording and localization preparation are separate changes that still require their own release verification. Nothing has been submitted for App Review.
 
 ## Completed
 
@@ -9,7 +15,7 @@
 - Product loading now runs independently of receipt synchronization. Purchases show an App Store progress indicator.
 - Core tests and Xcode 26.3 compilation pass.
 
-## Release blocker
+## Historical failures
 
 [Run 34738753910](https://github.com/lanray07/PlanBridge-AI/actions/runs/34738753910), source 11e1a1b, failed native monthly and annual purchase, restart recovery and restore assertions with 90-second waits. The empty-restore check passed. An earlier Xcode 16.4 run passed the annual path but failed monthly; this has not been reliable enough to call validated.
 
@@ -17,8 +23,8 @@ Diagnostics show StoreKit test mode enabled and product loading succeeding, but 
 
 Tests use an explicit StoreKit test plan, ad hoc simulator signing, Xcode 16.4 and iOS 18.5. The upload step switches to Xcode 26.3 and runs only after tests pass. Test records are local simulator records; no real payment is made.
 
-No updated build was uploaded by these failing runs. Version 1.0.0 build 5 remains the latest confirmed upload and still contains the earlier disabled-purchase configuration. Nothing was submitted for App Review.
+No updated build was uploaded by those failing runs. Build 5 contained the earlier disabled-purchase configuration; it has now been superseded by build 15 above.
 
 ## Next work
 
-Reproduce purchase/restore using an interactive native StoreKit or device sandbox session. Resolve the transaction failure before dispatching another release upload. Product-page illustrative screenshots and app-level privacy/availability details also need final release validation.
+Validate the selected binary in TestFlight/sandbox and complete the remaining screenshot, localization and app-level privacy/availability checks before App Review.

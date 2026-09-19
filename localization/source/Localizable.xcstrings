@@ -1,0 +1,629 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%@ – %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ – %2$@"
+          }
+        }
+      }
+    },
+    "%@ → %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ → %2$@"
+          }
+        }
+      }
+    },
+    "%@: %lld min" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$lld min"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "%lld to check" : {
+
+    },
+    "%lld without flags" : {
+
+    },
+    "6 plans · 1 timing conflict" : {
+
+    },
+    "16:20 → 18:05\nCalendar still 16:20" : {
+
+    },
+    "A clear answer, from the plans you have." : {
+
+    },
+    "A traveller preparing for the day" : {
+
+    },
+    "About" : {
+
+    },
+    "Add a booking" : {
+
+    },
+    "Add booking" : {
+
+    },
+    "Add or import booking" : {
+
+    },
+    "Add plan" : {
+
+    },
+    "Airlines, rail operators, hotels, restaurants and email services are not connected. No live delays, cancellations or provider changes are monitored." : {
+
+    },
+    "Alert preference" : {
+
+    },
+    "Alerts hide itinerary details. Calendar checks run when you open the app; daily notifications remind you to run a check. Background delivery and live provider monitoring are not included." : {
+
+    },
+    "Allow calendar access" : {
+
+    },
+    "Apple Calendar" : {
+
+    },
+    "Arrival · local time" : {
+
+    },
+    "Arrival city" : {
+
+    },
+    "Arrival location" : {
+
+    },
+    "Arrives" : {
+
+    },
+    "Ask" : {
+
+    },
+    "Ask about your plans…" : {
+
+    },
+    "Ask PlanBridge about your plans" : {
+
+    },
+    "Ask using on-device voice" : {
+
+    },
+    "Booking" : {
+
+    },
+    "Booking conflicts" : {
+
+    },
+    "Booking details" : {
+
+    },
+    "Booking removed" : {
+
+    },
+    "Bookings you provide" : {
+
+    },
+    "Bring a booking into the picture." : {
+
+    },
+    "Buffers are your preferences. They do not include travel time unless a reliable route estimate is available. Changes recalculate warnings immediately." : {
+
+    },
+    "Calendar timeline" : {
+
+    },
+    "Calendars & imports" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Check both local time zones before saving. Saving records the information you supplied; it does not connect to or change the provider." : {
+
+    },
+    "Check driving time with Apple Maps" : {
+
+    },
+    "Check my plans" : {
+
+    },
+    "Check My Plans" : {
+
+    },
+    "Check My Trip" : {
+
+    },
+    "Checking route…" : {
+
+    },
+    "Choose file" : {
+
+    },
+    "City" : {
+
+    },
+    "Clear demo plans" : {
+
+    },
+    "Clear the demo?" : {
+
+    },
+    "Confirm and save %lld bookings" : {
+
+    },
+    "Confirmation reference (optional)" : {
+
+    },
+    "Connections" : {
+
+    },
+    "Continue" : {
+
+    },
+    "Create" : {
+
+    },
+    "Create a trip" : {
+
+    },
+    "Create trip" : {
+
+    },
+    "Delete all local PlanBridge data?" : {
+
+    },
+    "Delete all PlanBridge data" : {
+
+    },
+    "Delete booking" : {
+
+    },
+    "Delete data" : {
+
+    },
+    "Delete this booking from PlanBridge?" : {
+
+    },
+    "Delete this trip and its PlanBridge bookings?" : {
+
+    },
+    "Delete trip" : {
+
+    },
+    "Delete trip and its imported bookings" : {
+
+    },
+    "DEMO DATA · This booking stays in the demo." : {
+
+    },
+    "Demo plans · no services connected" : {
+
+    },
+    "Departure location" : {
+
+    },
+    "Destination" : {
+
+    },
+    "Destination city" : {
+
+    },
+    "Dinner 19:30\nTrain arrival 19:42" : {
+
+    },
+    "Disconnect & remove calendar data" : {
+
+    },
+    "Dismiss this warning" : {
+
+    },
+    "Done" : {
+
+    },
+    "Draft terms" : {
+
+    },
+    "Edit booking" : {
+
+    },
+    "End · local time" : {
+
+    },
+    "Ends" : {
+
+    },
+    "Every imported booking is shown for review before it is saved." : {
+
+    },
+    "Evidence-led answers about your plans" : {
+
+    },
+    "Explore demo plans" : {
+
+    },
+    "Explore PlanBridge Pro" : {
+
+    },
+    "Explore with demo plans" : {
+
+    },
+    "Export my data" : {
+
+    },
+    "Find a plan" : {
+
+    },
+    "From" : {
+
+    },
+    "Import an ICS calendar file or a PlanBridge structured itinerary. Nothing is saved until you confirm." : {
+
+    },
+    "Import an ICS or structured JSON file" : {
+
+    },
+    "Import ICS or JSON" : {
+
+    },
+    "Information source" : {
+
+    },
+    "iOS asks for calendar access. PlanBridge then reads only the calendars you select, for today through the next 90 days. Your calendars are never edited." : {
+
+    },
+    "Know when your plans\ndon't line up." : {
+
+    },
+    "Less searching.\nMore knowing." : {
+
+    },
+    "Link only when both entries describe the same booking. Calendar times are read-only here." : {
+
+    },
+    "Link to a booking" : {
+
+    },
+    "Listening… tap to stop" : {
+
+    },
+    "Location" : {
+
+    },
+    "Location: %@" : {
+
+    },
+    "Make room for\nthe good part." : {
+
+    },
+    "Manage your calendars and imports" : {
+
+    },
+    "Manual bookings" : {
+
+    },
+    "Mark intentional" : {
+
+    },
+    "More room to check your trips. A simpler way to ask about your day." : {
+
+    },
+    "My trips" : {
+
+    },
+    "Needs attention" : {
+
+    },
+    "Needs attention only" : {
+
+    },
+    "No conflicts found in today's supplied plans." : {
+
+    },
+    "No live provider status is available." : {
+
+    },
+    "No matching plans. Add a booking to get started." : {
+
+    },
+    "No trip" : {
+
+    },
+    "Not connected" : {
+
+    },
+    "Not linked" : {
+
+    },
+    "Notifications" : {
+
+    },
+    "OK" : {
+
+    },
+    "On-device voice queries, where supported" : {
+
+    },
+    "One question. A clearer day." : {
+
+    },
+    "Only the bookings assigned to this trip are checked. Missing sources and travel estimates may limit the result." : {
+
+    },
+    "Open PlanBridge to review your available plans." : {
+
+    },
+    "PDF, image and Wallet extraction are not yet supported. Enter those bookings manually." : {
+
+    },
+    "Place or address" : {
+
+    },
+    "PlanBridge" : {
+
+    },
+    "PlanBridge highlights potential inconsistencies in the information you supply. It does not guarantee that your itinerary is complete, feasible or current. Confirm important details with your provider.\n\nNo booking is made, cancelled or amended through this app. Travel times and buffers, where supplied, are estimates or preferences.\n\nPro subscriptions renew automatically unless cancelled in App Store subscription settings. Prices and billing periods are shown by StoreKit when configured. Privacy and data deletion do not require Pro.\n\nThis development build requires final publisher terms and public policy URLs before subscriptions are offered for sale." : {
+
+    },
+    "PlanBridge Pro · active" : {
+
+    },
+    "PlanBridge stores the plans you add and the selected calendar events on your device. The local database uses iOS file protection and is excluded from app backups.\n\nNo account is created. No advertising or analytics SDK is included. No itinerary data is sold or transmitted to a PlanBridge server. Apple processes App Store purchases under its own policies. Optional route checks send the supplied addresses to Apple Maps when you request them.\n\nVoice requires microphone and speech permission. Recognition must support on-device processing; otherwise use typing. Raw audio and transcripts are not persisted. Answers are produced locally from supplied evidence.\n\nExport shares a copy with the destination you choose. Delete all data clears local plans, trips, changes, imports and decisions. Disconnect removes cached calendar events. Revoking system calendar permission is available in iOS Settings.\n\nThis is a development privacy summary. A publisher identity, support contact and publicly hosted policy must be supplied before App Store release." : {
+
+    },
+    "Plans are temporarily unavailable. Please check your connection and try again." : {
+
+    },
+    "plans today" : {
+
+    },
+    "Privacy" : {
+
+    },
+    "Privacy & data handling" : {
+
+    },
+    "Privacy summary" : {
+
+    },
+    "Private by design" : {
+
+    },
+    "Provider" : {
+
+    },
+    "Provider (optional)" : {
+
+    },
+    "Provider bookings and Apple Calendar events are not cancelled or deleted." : {
+
+    },
+    "Provider: %@ · Reference: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Provider: %1$@ · Reference: %2$@"
+          }
+        }
+      }
+    },
+    "Purchases are disabled until the publisher supplies final public terms and a privacy policy." : {
+
+    },
+    "Read aloud" : {
+
+    },
+    "Read answers aloud" : {
+
+    },
+    "Reference" : {
+
+    },
+    "Refresh selected calendars" : {
+
+    },
+    "Renews every %lld %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Renews every %1$lld %2$@"
+          }
+        }
+      }
+    },
+    "Require Face ID or device passcode" : {
+
+    },
+    "Restore dismissed warnings" : {
+
+    },
+    "Restore purchases" : {
+
+    },
+    "Review %@" : {
+
+    },
+    "Review an import" : {
+
+    },
+    "Review conflict" : {
+
+    },
+    "Review my buffers" : {
+
+    },
+    "Run a plan check now" : {
+
+    },
+    "Same booking" : {
+
+    },
+    "Save" : {
+
+    },
+    "Settings" : {
+
+    },
+    "Skip" : {
+
+    },
+    "Smart buffers" : {
+
+    },
+    "Source" : {
+
+    },
+    "Source details" : {
+
+    },
+    "Start · local time" : {
+
+    },
+    "Starts" : {
+
+    },
+    "Status" : {
+
+    },
+    "Stop listening" : {
+
+    },
+    "Subscriptions renew automatically. Manage or cancel in App Store settings. Your privacy controls always remain free." : {
+
+    },
+    "Switch off demo mode in Settings to connect your calendars." : {
+
+    },
+    "Tap to ask, or type below" : {
+
+    },
+    "Terms" : {
+
+    },
+    "Terms & limitations" : {
+
+    },
+    "This clears plans, trips, saved changes and warning decisions. It does not cancel provider bookings." : {
+
+    },
+    "This does not cancel the provider's booking." : {
+
+    },
+    "This does not change or cancel a booking. A new warning can appear if its evidence changes." : {
+
+    },
+    "This sends the two supplied locations to Apple Maps. The result is a driving estimate, not a guarantee." : {
+
+    },
+    "Timeline" : {
+
+    },
+    "Title" : {
+
+    },
+    "To revoke system permission as well, use iOS Settings → Apps → PlanBridge AI → Calendars." : {
+
+    },
+    "Today" : {
+
+    },
+    "Trip" : {
+
+    },
+    "Trip check complete. %@" : {
+
+    },
+    "Trip name" : {
+
+    },
+    "Trip organizer" : {
+
+    },
+    "Trip timeline" : {
+
+    },
+    "Try loading plans again" : {
+
+    },
+    "Type" : {
+
+    },
+    "Unlimited checks of supplied trip bookings" : {
+
+    },
+    "Unlock PlanBridge" : {
+
+    },
+    "Until" : {
+
+    },
+    "Use my plans" : {
+
+    },
+    "Version" : {
+
+    },
+    "Voice is push-to-talk and on-device only. No raw audio or transcript is saved. Answers use local rules and supplied evidence; no cloud AI is connected." : {
+
+    },
+    "Waiting for the App Store…" : {
+
+    },
+    "We found · is this correct?" : {
+
+    },
+    "What changed?" : {
+
+    },
+    "Your bookings together. The details checked." : {
+
+    },
+    "Your daily calendar planner" : {
+
+    },
+    "Your device.\nYour connections.\nYour choice." : {
+
+    },
+    "Your PlanBridge" : {
+
+    },
+    "Your plans are stored on this device and excluded from app backups. Optional driving checks send the two locations to Apple Maps. No account, analytics, email access or cloud AI is connected." : {
+
+    },
+    "Your plans stay personal." : {
+
+    },
+    "Your preferred breathing room" : {
+
+    },
+    "Your Pro subscription is active" : {
+
+    },
+    "Your settings" : {
+
+    }
+  },
+  "version" : "1.0"
+}

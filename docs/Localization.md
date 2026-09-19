@@ -16,4 +16,6 @@ Before enabling a locale:
 4. Capture and inspect the actual UI in that locale on iPhone and iPad, including long text, purchase/restore, and accessibility labels.
 5. Upload matching localized screenshots and metadata. Recheck the selected release binary before submission.
 
+The screenshot workflow accepts English, French, Spanish or German. Non-English runs generate a complete draft catalog only on the disposable runner using `--preview-output`; this does not enable unreviewed translations in the repository's shipping catalog. `localization/source/Localizable.xcstrings` is the exported source snapshot from run 35457762061. Refresh that snapshot after interface changes and rerun coverage checks.
+
 Translation generation must operate only on public source copy. Runtime translation of personal bookings is a separate feature and has not been authorized or implemented.

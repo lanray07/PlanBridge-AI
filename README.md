@@ -36,7 +36,7 @@ Windows paths with spaces can trigger a SwiftPM output-map error. Use a scratch 
 swift test --scratch-path C:/Users/User/.codex/builds/PlanBridgeAI
 ```
 
-All 22 core tests passed, and the Xcode 26.3 compilation workflow passes. Release run 34735547650 uploaded version 1.0.0 build 5. Later native tests load both products and capture the priced paywall, but purchase/restore assertions still fail in the hosted simulator, including run 34738753910 with 90-second waits. The release gate prevents uploading those unvalidated changes. Build 5 remains the latest confirmed upload. See [StoreKit validation](docs/StoreKitValidation.md).
+All 22 core tests passed. Release run [35457681244](https://github.com/lanray07/PlanBridge-AI/actions/runs/35457681244) passed monthly/annual purchases, restart recovery, restore and empty restore, then uploaded version 1.0.0 build 15. The app is now stopped before the test resets StoreKit. Later screenshot/localization work requires its own checked release. See [StoreKit validation](docs/StoreKitValidation.md) and [localization preparation](docs/Localization.md).
 
 ## Data and integrations
 

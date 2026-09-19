@@ -14,6 +14,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 parser = argparse.ArgumentParser()
 parser.add_argument("source", type=Path)
 parser.add_argument("--compile", action="store_true")
+parser.add_argument("--preview-output", type=Path, help="Generate a complete draft catalog for layout QA only")
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 catalog = json.loads(args.source.read_text(encoding="utf-8"))
@@ -51,6 +52,12 @@ for key in missing:
     print("MISSING: " + key.replace("\n", "\\n"))
 if errors:
     raise SystemExit("\n".join(errors))
+if args.preview_output:
+    if args.compile or missing:
+        raise SystemExit("Preview requires complete coverage and cannot be combined with --compile.")
+    args.preview_output.parent.mkdir(parents=True, exist_ok=True)
+    args.preview_output.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("Generated a draft catalog for layout QA, not publication.")
 if args.compile:
     if missing or draft["reviewStatus"] != "reviewed":
         raise SystemExit("Compilation blocked: complete coverage and reviewed status are required.")
