@@ -9,7 +9,13 @@
     {"id": "01-calendar-planner", "keyword": "calendar planner", "headline": "Your daily calendar planner", "capture": "Today", "status": "native-capture-required"},
     {"id": "02-booking-conflicts", "keyword": "booking conflicts", "headline": "Spot booking conflicts", "capture": "Conflict detail", "status": "native-capture-required"},
     {"id": "03-calendar-timeline", "keyword": "calendar timeline", "headline": "One clear calendar timeline", "capture": "Timeline", "status": "native-capture-required"},
-    {"id": "04-trip-organizer", "keyword": "trip organizer", "headline": "Your personal trip organizer", "capture": "My trips", "status": "native-capture-required"}
+    {"id": "04-trip-organizer", "keyword": "trip organizer", "headline": "Your personal trip organizer", "capture": "My trips", "status": "native-capture-required"},
+    {"id": "05-trip-check", "keyword": "itinerary checker", "headline": "An itinerary checker for every detail", "capture": "Trip detail", "status": "native-capture-required"},
+    {"id": "06-private-questions", "keyword": "private planner", "headline": "Ask your private planner", "capture": "Ask", "status": "native-capture-required"},
+    {"id": "07-privacy-controls", "keyword": "privacy controls", "headline": "Privacy controls built in", "capture": "Settings", "status": "native-capture-required"},
+    {"id": "08-calendar-connections", "keyword": "calendar connections", "headline": "Choose your calendar connections", "capture": "Connections", "status": "native-capture-required"},
+    {"id": "09-review-imports", "keyword": "booking import", "headline": "Review every booking import", "capture": "Import", "status": "native-capture-required"},
+    {"id": "10-planbridge-pro", "keyword": "trip planning", "headline": "More room for trip planning", "capture": "Paywall", "status": "native-capture-required"}
   ],
   "reviewStatus": "draft"
 }

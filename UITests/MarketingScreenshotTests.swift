@@ -44,6 +44,38 @@ final class MarketingScreenshotTests: XCTestCase {
         app.buttons.matching(NSPredicate(format: "label == %@", labels[9])).firstMatch.tap()
         XCTAssertTrue(app.navigationBars[labels[10]].waitForExistence(timeout: 5))
         capture(app, language + "-04-trip-organizer")
+        if language == "en" { captureEnglishDetailScreens(app) }
+    }
+
+    @MainActor private func captureEnglishDetailScreens(_ app: XCUIApplication) {
+        let manchester = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Manchester")).firstMatch
+        XCTAssertTrue(manchester.waitForExistence(timeout: 5))
+        manchester.tap()
+        XCTAssertTrue(app.navigationBars["Manchester, for the evening"].waitForExistence(timeout: 5))
+        capture(app, "en-05-trip-check")
+        app.navigationBars.buttons.firstMatch.tap()
+
+        app.buttons.matching(NSPredicate(format: "label == %@", "Ask")).firstMatch.tap()
+        XCTAssertTrue(app.staticTexts["Ask PlanBridge"].waitForExistence(timeout: 5))
+        capture(app, "en-06-private-questions")
+        app.buttons.matching(NSPredicate(format: "label == %@", "Today")).firstMatch.tap()
+        app.buttons["Settings"].tap()
+        XCTAssertTrue(app.navigationBars["Your settings"].waitForExistence(timeout: 5))
+        capture(app, "en-07-privacy-controls")
+
+        app.buttons["Calendars & imports"].tap()
+        XCTAssertTrue(app.navigationBars["Connections"].waitForExistence(timeout: 5))
+        capture(app, "en-08-calendar-connections")
+        app.buttons["Import an ICS or structured JSON file"].tap()
+        XCTAssertTrue(app.navigationBars["Review an import"].waitForExistence(timeout: 5))
+        capture(app, "en-09-review-imports")
+        app.buttons["Cancel"].tap()
+        app.navigationBars.buttons.firstMatch.tap()
+
+        app.buttons["Explore PlanBridge Pro"].tap()
+        XCTAssertTrue(app.staticTexts["PlanBridge Pro"].waitForExistence(timeout: 5))
+        _ = app.buttons["com.planbridge.ai.pro.monthly"].waitForExistence(timeout: 30)
+        capture(app, "en-10-planbridge-pro")
     }
 
     @MainActor private func capture(_ app: XCUIApplication, _ name: String) {
