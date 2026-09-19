@@ -60,6 +60,11 @@ final class MarketingScreenshotTests: XCTestCase {
         XCTAssertTrue(app.staticTexts["ASK PLANBRIDGE"].waitForExistence(timeout: 5))
         capture(app, "en-06-private-questions")
         app.buttons.matching(NSPredicate(format: "label == %@", "Today")).firstMatch.tap()
+        // Each tab retains its own navigation path, so Today may return to the
+        // conflict detail captured earlier. Pop that path before opening Home settings.
+        let back = app.buttons["Back"]
+        if back.waitForExistence(timeout: 2) { back.tap() }
+        XCTAssertTrue(app.buttons["Settings"].waitForExistence(timeout: 5))
         app.buttons["Settings"].tap()
         XCTAssertTrue(app.navigationBars["Your settings"].waitForExistence(timeout: 5))
         capture(app, "en-07-privacy-controls")
