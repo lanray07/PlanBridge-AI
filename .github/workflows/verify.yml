@@ -18,3 +18,9 @@ jobs:
         run: bash scripts/prepare-mac.sh
       - name: Build iOS simulator app
         run: xcodebuild -project PlanBridgeAI.xcodeproj -scheme PlanBridgeAI -destination 'generic/platform=iOS Simulator' -derivedDataPath DerivedData CODE_SIGNING_ALLOWED=NO build
+      - name: Export public interface strings for translation
+        run: xcodebuild -exportLocalizations -project PlanBridgeAI.xcodeproj -localizationPath LocalizationExport -exportLanguage en CODE_SIGNING_ALLOWED=NO
+      - uses: actions/upload-artifact@v4
+        with:
+          name: localization-source
+          path: LocalizationExport

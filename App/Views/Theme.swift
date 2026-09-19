@@ -22,13 +22,13 @@ extension View {
 }
 struct Eyebrow: View {
     var text: String
-    var body: some View { Text(text.uppercased()).font(.caption.weight(.semibold)).tracking(2).foregroundStyle(.secondary) }
+    var body: some View { Text(LocalizedStringKey(text)).textCase(.uppercase).font(.caption.weight(.semibold)).tracking(2).foregroundStyle(.secondary) }
 }
 struct StatusPill: View {
     var text: String
     var warning = false
     var body: some View {
-        Text(text).font(.caption.weight(.semibold)).padding(.horizontal,10).padding(.vertical,6)
+        Text(LocalizedStringKey(text)).font(.caption.weight(.semibold)).padding(.horizontal,10).padding(.vertical,6)
             .foregroundStyle(warning ? BridgeTheme.amber : BridgeTheme.green)
             .background(warning ? Color.orange.opacity(0.12) : BridgeTheme.sage,in:Capsule())
     }
@@ -59,8 +59,8 @@ struct EmptyPlans: View {
     var body: some View {
         VStack(spacing:16) {
             Image(systemName:"calendar.badge.checkmark").font(.system(size:40)).foregroundStyle(BridgeTheme.green)
-            Text(title).font(.title3.weight(.semibold))
-            Text(detail).font(.subheadline).foregroundStyle(.secondary).multilineTextAlignment(.center)
+            Text(LocalizedStringKey(title)).font(.title3.weight(.semibold))
+            Text(LocalizedStringKey(detail)).font(.subheadline).foregroundStyle(.secondary).multilineTextAlignment(.center)
         }.frame(maxWidth:.infinity).padding(.vertical,30).bridgeCard()
     }
 }

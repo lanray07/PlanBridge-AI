@@ -25,7 +25,7 @@ struct TripsView: View {
                     }
                 }
             }.padding(24).frame(maxWidth:760).frame(maxWidth:.infinity)
-        }.background(BridgeTheme.canvas).navigationTitle("My trips").navigationBarTitleDisplayMode(.inline)
+        }.background(BridgeTheme.canvas).navigationTitle("Trip organizer").navigationBarTitleDisplayMode(.inline)
             .toolbar { Button { create = true } label: { Image(systemName:"plus").accessibilityLabel("Create trip") } }
             .sheet(isPresented:$create) { NavigationStack { TripEditor() } }
     }

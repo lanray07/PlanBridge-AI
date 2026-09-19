@@ -21,7 +21,7 @@ struct HomeView: View {
                 VStack(alignment:.leading,spacing:8) {
                     Eyebrow(text:Date().formatted(.dateTime.weekday(.wide).day().month(.wide)))
                     Text(greeting).font(.system(.largeTitle,design:.serif))
-                    Text("A little clarity for the day ahead.").font(.subheadline).foregroundStyle(.secondary)
+                    Text("Your daily calendar planner").font(.subheadline).foregroundStyle(.secondary)
                 }
                 VStack(alignment:.leading,spacing:24) {
                     HStack { Eyebrow(text:"Your day, at a glance"); Spacer(); Image(systemName:"sun.max").foregroundStyle(BridgeTheme.green) }

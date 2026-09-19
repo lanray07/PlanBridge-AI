@@ -50,7 +50,7 @@ struct ConflictDetailView: View {
                 Button("Dismiss this warning") { store.resolve(conflict,as:.dismissed); dismiss() }.frame(maxWidth:.infinity)
                 Text("This does not change or cancel a booking. A new warning can appear if its evidence changes.").font(.caption).foregroundStyle(.secondary)
             }.padding(24).frame(maxWidth:720).frame(maxWidth:.infinity)
-        }.background(BridgeTheme.canvas).navigationTitle("Review conflict").navigationBarTitleDisplayMode(.inline)
+        }.background(BridgeTheme.canvas).navigationTitle("Booking conflicts").navigationBarTitleDisplayMode(.inline)
     }
     private func section(_ title: String,_ text: String) -> some View {
         VStack(alignment:.leading,spacing:12) { Eyebrow(text:title); Text(text).lineSpacing(4) }.frame(maxWidth:.infinity,alignment:.leading).bridgeCard()

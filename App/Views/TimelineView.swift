@@ -32,7 +32,7 @@ struct TimelineView: View {
                     }
                 }
             }
-        }.scrollContentBackground(.hidden).background(BridgeTheme.canvas).navigationTitle("Your timeline")
+        }.scrollContentBackground(.hidden).background(BridgeTheme.canvas).navigationTitle("Calendar timeline")
             .searchable(text:$query,prompt:"Find a plan")
             .toolbar { ToolbarItem(placement:.primaryAction) { Menu { Button("Add booking") { sheet = .add }; Button("Import ICS or JSON") { sheet = .importBooking } } label: { Image(systemName:"plus").accessibilityLabel("Add or import booking") } } }
     }
