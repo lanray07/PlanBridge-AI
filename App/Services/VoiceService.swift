@@ -23,6 +23,15 @@ import SwiftUI
         isStarting = true
         transcript = ""
         message = nil
+
+        // Voice input is optional and typing is always available. Some iPad audio
+        // routes can terminate AVAudioEngine during microphone startup instead of
+        // returning a recoverable error. Keep the Ask screen usable on iPad while
+        // avoiding that process-level failure.
+        guard UIDevice.current.userInterfaceIdiom != .pad else {
+            message = "Voice input is currently unavailable on iPad. Type your question instead."
+            return
+        }
         defer {
             if generation == startGeneration {
                 isStarting = false
