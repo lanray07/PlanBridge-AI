@@ -19,15 +19,15 @@ struct AskView: View {
                 Text("A clear answer, from the plans you have.").font(.subheadline).foregroundStyle(.secondary)
                 if store.isDemo { StatusPill(text:"DEMO DATA") }
                 Button {
-                    if voice.isListening { voice.stop(); question = voice.transcript }
+                    if voice.isListening || voice.isStarting { voice.stop(); question = voice.transcript }
                     else if subscription.isPro || store.isDemo { Task { await voice.start() } }
                     else { paywall = true }
                 } label: {
-                    Image(systemName:voice.isListening ? "stop.fill" : "mic.fill").font(.system(size:36)).foregroundStyle(.white)
+                    Image(systemName:voice.isListening || voice.isStarting ? "stop.fill" : "mic.fill").font(.system(size:36)).foregroundStyle(.white)
                         .frame(width:112,height:112).background(BridgeTheme.green,in:Circle())
                         .padding(14).background(BridgeTheme.sage.opacity(0.5),in:Circle())
-                }.accessibilityLabel(voice.isListening ? "Stop listening" : "Ask using on-device voice")
-                Text(voice.isListening ? "Listening… tap to stop" : "Tap to ask, or type below").font(.caption).foregroundStyle(.secondary)
+                }.accessibilityLabel(voice.isListening || voice.isStarting ? "Stop listening" : "Ask using on-device voice")
+                Text(voice.isListening ? "Listening… tap to stop" : voice.isStarting ? "Starting voice… tap to cancel" : "Tap to ask, or type below").font(.caption).foregroundStyle(.secondary)
                 if let message = voice.message { Text(message).font(.caption).foregroundStyle(.secondary) }
                 VStack(spacing:12) {
                     TextField("Ask about your plans…",text:$question,axis:.vertical).lineLimit(1...4).padding(18).background(BridgeTheme.card,in:RoundedRectangle(cornerRadius:18))

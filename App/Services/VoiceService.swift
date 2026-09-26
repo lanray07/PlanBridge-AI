@@ -5,37 +5,85 @@ import SwiftUI
 @MainActor @Observable final class VoiceService {
     var transcript = ""
     var isListening = false
+    var isStarting = false
     var message: String?
-    private let engine = AVAudioEngine()
+
+    private var engine: AVAudioEngine?
     private var recognizer: SFSpeechRecognizer?
     private var recognitionTask: SFSpeechRecognitionTask?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var hasTap = false
+    private var startGeneration: UInt = 0
     private let speaker = AVSpeechSynthesizer()
+
     func start() async {
-        stop(); transcript = ""; message = nil
-        let recognizer = SFSpeechRecognizer(locale:Locale.current)
+        guard !isStarting, !isListening else { return }
+        stop()
+        let generation = startGeneration
+        isStarting = true
+        transcript = ""
+        message = nil
+        defer {
+            if generation == startGeneration {
+                isStarting = false
+            }
+        }
+
+        let recognizer = SFSpeechRecognizer(locale: Locale.current)
         guard let recognizer, recognizer.supportsOnDeviceRecognition, recognizer.isAvailable else {
-            message = "On-device voice recognition is unavailable for this language or device. Type your question instead."; return
+            message = "On-device voice recognition is unavailable for this language or device. Type your question instead."
+            return
         }
+
         let speech = await withCheckedContinuation { continuation in
-            SFSpeechRecognizer.requestAuthorization { status in continuation.resume(returning:status == .authorized) }
+            SFSpeechRecognizer.requestAuthorization { status in
+                continuation.resume(returning: status == .authorized)
+            }
         }
+        guard generation == startGeneration else { return }
+
         let microphone = await AVAudioApplication.requestRecordPermission()
-        guard speech && microphone else { message = "Voice needs microphone and speech permission. You can still type your question."; return }
+        guard generation == startGeneration else { return }
+        guard speech && microphone else {
+            message = "Voice needs microphone and speech permission. You can still type your question."
+            return
+        }
+
         do {
-            self.recognizer = recognizer
             let audio = AVAudioSession.sharedInstance()
-            try audio.setCategory(.record,mode:.measurement,options:.duckOthers)
+            try audio.setCategory(.record, mode: .measurement)
             try audio.setActive(true)
+            guard !audio.currentRoute.inputs.isEmpty else {
+                try? audio.setActive(false, options: .notifyOthersOnDeactivation)
+                message = "No microphone input is available. Type your question instead."
+                return
+            }
+
             let request = SFSpeechAudioBufferRecognitionRequest()
-            request.requiresOnDeviceRecognition = true; request.shouldReportPartialResults = true
+            request.requiresOnDeviceRecognition = true
+            request.shouldReportPartialResults = true
+
+            // Create a fresh engine after the recording route is active. Passing a
+            // previously captured hardware format to installTap can terminate the
+            // process when iPadOS changes the input route or sample rate.
+            let engine = AVAudioEngine()
+            let node = engine.inputNode
+            let inputFormat = node.inputFormat(forBus: 0)
+            guard inputFormat.sampleRate > 0, inputFormat.channelCount > 0 else {
+                try? audio.setActive(false, options: .notifyOthersOnDeactivation)
+                message = "No microphone input is available. Type your question instead."
+                return
+            }
+
+            self.recognizer = recognizer
             self.request = request
-            let node = engine.inputNode; let format = node.outputFormat(forBus:0)
-            guard format.sampleRate > 0, format.channelCount > 0 else { stop(); message = "No microphone input is available."; return }
-            node.installTap(onBus:0,bufferSize:1024,format:format) { buffer,_ in request.append(buffer) }
+            self.engine = engine
+            node.installTap(onBus: 0, bufferSize: 1024, format: nil) { buffer, _ in
+                request.append(buffer)
+            }
             hasTap = true
-            recognitionTask = recognizer.recognitionTask(with:request) { [weak self] result,error in
+
+            recognitionTask = recognizer.recognitionTask(with: request) { [weak self] result, error in
                 let text = result?.bestTranscription.formattedString
                 let finished = result?.isFinal == true
                 let failed = error != nil
@@ -45,23 +93,53 @@ import SwiftUI
                     if finished || failed { self.stop() }
                 }
             }
-            engine.prepare(); try engine.start(); isListening = true
-        } catch { stop(); message = "The microphone could not start. \(error.localizedDescription)" }
+
+            engine.prepare()
+            try engine.start()
+            guard generation == startGeneration else {
+                stop()
+                return
+            }
+            isListening = true
+        } catch {
+            stop()
+            message = "The microphone could not start. \(error.localizedDescription)"
+        }
     }
+
     func stop() {
-        engine.stop()
-        if hasTap { engine.inputNode.removeTap(onBus:0); hasTap = false }
-        request?.endAudio(); recognitionTask?.cancel(); recognitionTask = nil; request = nil
+        startGeneration &+= 1
+        isStarting = false
+        engine?.stop()
+        if hasTap {
+            engine?.inputNode.removeTap(onBus: 0)
+            hasTap = false
+        }
+        request?.endAudio()
+        recognitionTask?.cancel()
+        recognitionTask = nil
+        request = nil
+        recognizer = nil
+        engine = nil
         isListening = false
-        try? AVAudioSession.sharedInstance().setActive(false,options:.notifyOthersOnDeactivation)
+        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
     }
+
     func speak(_ text: String) {
-        stop(); speaker.stopSpeaking(at:.immediate)
+        stop()
+        speaker.stopSpeaking(at: .immediate)
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback,mode:.spokenAudio,options:.duckOthers)
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: .duckOthers)
             try AVAudioSession.sharedInstance().setActive(true)
-            speaker.speak(AVSpeechUtterance(string:text))
-        } catch { message = "Spoken playback is unavailable." }
+            speaker.speak(AVSpeechUtterance(string: text))
+        } catch {
+            message = "Spoken playback is unavailable."
+        }
     }
-    func clear() { stop(); speaker.stopSpeaking(at:.immediate); transcript = "" }
+
+    func clear() {
+        stop()
+        speaker.stopSpeaking(at: .immediate)
+        transcript = ""
+    }
 }
