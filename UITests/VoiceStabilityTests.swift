@@ -1,7 +1,7 @@
 import XCTest
 
 final class VoiceStabilityTests: XCTestCase {
-    @MainActor func testMicrophoneStartDoesNotCrashOnIPad() {
+    @MainActor func testMicrophoneStartDoesNotCrash() {
         continueAfterFailure = false
         let app = XCUIApplication()
 

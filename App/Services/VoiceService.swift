@@ -2,6 +2,27 @@
 @preconcurrency import Speech
 import SwiftUI
 
+private enum VoiceAuthorization {
+    // TCC invokes these completion handlers on its own queue. Keep the bridges
+    // outside VoiceService's MainActor isolation so Swift 6 doesn't treat the
+    // callbacks as main-actor closures and trap when iOS calls them off-main.
+    static func requestSpeech() async -> Bool {
+        await withCheckedContinuation { continuation in
+            SFSpeechRecognizer.requestAuthorization { status in
+                continuation.resume(returning: status == .authorized)
+            }
+        }
+    }
+
+    static func requestMicrophone() async -> Bool {
+        await withCheckedContinuation { continuation in
+            AVAudioApplication.requestRecordPermission { granted in
+                continuation.resume(returning: granted)
+            }
+        }
+    }
+}
+
 @MainActor @Observable final class VoiceService {
     var transcript = ""
     var isListening = false
@@ -13,6 +34,7 @@ import SwiftUI
     private var recognitionTask: SFSpeechRecognitionTask?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var hasTap = false
+    private var ownsAudioSession = false
     private var startGeneration: UInt = 0
     private let speaker = AVSpeechSynthesizer()
 
@@ -23,6 +45,11 @@ import SwiftUI
         isStarting = true
         transcript = ""
         message = nil
+        defer {
+            if generation == startGeneration {
+                isStarting = false
+            }
+        }
 
         // Voice input is optional and typing is always available. Some iPad audio
         // routes can terminate AVAudioEngine during microphone startup instead of
@@ -32,11 +59,6 @@ import SwiftUI
             message = "Voice input is currently unavailable on iPad. Type your question instead."
             return
         }
-        defer {
-            if generation == startGeneration {
-                isStarting = false
-            }
-        }
 
         let recognizer = SFSpeechRecognizer(locale: Locale.current)
         guard let recognizer, recognizer.supportsOnDeviceRecognition, recognizer.isAvailable else {
@@ -44,14 +66,10 @@ import SwiftUI
             return
         }
 
-        let speech = await withCheckedContinuation { continuation in
-            SFSpeechRecognizer.requestAuthorization { status in
-                continuation.resume(returning: status == .authorized)
-            }
-        }
+        let speech = await VoiceAuthorization.requestSpeech()
         guard generation == startGeneration else { return }
 
-        let microphone = await AVAudioApplication.requestRecordPermission()
+        let microphone = await VoiceAuthorization.requestMicrophone()
         guard generation == startGeneration else { return }
         guard speech && microphone else {
             message = "Voice needs microphone and speech permission. You can still type your question."
@@ -62,6 +80,7 @@ import SwiftUI
             let audio = AVAudioSession.sharedInstance()
             try audio.setCategory(.record, mode: .measurement)
             try audio.setActive(true)
+            ownsAudioSession = true
             guard !audio.currentRoute.inputs.isEmpty else {
                 try? audio.setActive(false, options: .notifyOthersOnDeactivation)
                 message = "No microphone input is available. Type your question instead."
@@ -131,7 +150,10 @@ import SwiftUI
         recognizer = nil
         engine = nil
         isListening = false
-        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        if ownsAudioSession {
+            try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+            ownsAudioSession = false
+        }
     }
 
     func speak(_ text: String) {
@@ -140,6 +162,7 @@ import SwiftUI
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: .duckOthers)
             try AVAudioSession.sharedInstance().setActive(true)
+            ownsAudioSession = true
             speaker.speak(AVSpeechUtterance(string: text))
         } catch {
             message = "Spoken playback is unavailable."
